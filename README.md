@@ -1,6 +1,6 @@
 # pic16b_project
 
-. O .
+. O O
 
 . X O
 
