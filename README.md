@@ -13,13 +13,16 @@ Our deliverable will be a web app that allows the user to input the city and gen
 	* “Partial success.” What useful deliverable will you be able to offer even if things don’t 100% work out? For example, maybe you aren’t able to get that webapp together, but you can still create a code repository that showcases the machine learning pipeline needed to use to support the app. Have a contingency plan!
 Partial success will be defined by a web app that only generates the optimal routes provided that the user has already decided on a hotel and some sightseeing locations.
 
-3. **Resources Required:** Do you need certain data sets? Do you know whether those data sets exist? Are they freely accessible? You should do at least a small amount of research for this part, in which you convince me that there is good reason to believe that you will be able to access or obtain the resources needed for your proposal.
-TripAdvisor will have the data on the sightseeing locations and the hotel locations, and the google map API will generate the optimal routes.
+3. **Resources Required:**
+- [TripAdvisor](https://www.tripadvisor.com/): Since our project aims to provide a list of recommended hotels and sightseeing locations after the user inputs the city they want to visit, we need reliable and latest data sets about the sightseeing locations and hotel in that city. Hence, we plan to use the information about hotel locations and sightseeing locations from TripAdvisor. Since there will be a lot of information about the locations, we decide to minimize the options of cities that the user can input. In other words, the user can only input a city in California. We might enlarge the city options in different states for the user in the later stage of the project. The method of how we will get the information from TripAdvisor will mainly be web scraping. 
+- [Kaggle](https://www.kaggle.com/): If we are not able to successfully get the information from TripAdvisor by web scraping, using the available data sets about the hotel and sightseeing directly online, such as Kaggle, is another option.
+- [Google Maps API](https://developers.google.com/maps): Since we need to also provide the optimal route for the user, we have searched online that Google Maps API can be a tool to form maps and routes.
 
-4. **Tools/Skills Required:** What skills will you need? Machine learning, database management, complex visualization, something else? If you know the names of Python packages that you will need to use, include them here. If you’re not sure, just describe the skills or tasks you will need to accomplish.
-Web scraping for both hotel and sightseeing recommendations (scrapy)
-geographic visualization for plotting sightseeing recommendations (plotly)
-Complex visualizations for generating maps of travelling routes  (google maps API)
+4. **Tools/Skills Required:**
+- Web scraping: We need to have information by web scraping TripAdvisor to provide both the hotel and sightseeing recommendations for the user. We have searched online that there are many available tutorials about how to use web scraping to get information from TripAdvisor that we can self-learning them.
+- Python Plotly Package (& Pandas Package): It will be better if we will also be able to generate geographic visualizations for plotting sightseeing recommendations based on the information by web scraping from TripAdvisor.
+- Google Maps API: We may use complex visualizations for generating maps of traveling routes by Google Maps API. There are also tutorials online about how to use it that we may need to self-learn.
+- Webapp skills: We will try to learn how to make our ideas shown on a webapp in the later stage of our project. There are also tutorials online about how to make a webapp.
 
 5. **Risks:** 
  - Data:　Important data component might not exist or for technical reasons, it’s really hard to scrape. We plan to scrape informations such as popular tourist spots and hotels from TripAdvisor, but we might not be able to achieve it based on our limited experience with web scraping, or we managed to scrape, but they exist on two sources that we can’t merge. 
