@@ -1,6 +1,6 @@
 # pic16b_project
 
-Travel Planning
+## Travel Planning
 Planned Deliverables: Concisely what you are going to create and what capabilities it will have. Are you making a webapp? A Python package for others to use? Code that creates a novel data set? Etc. Please consider two scenarios:
 We will create a travel recommendation generator that will give hotel and sightseeing recommendations based on where you want to go in California. We will also generate the optimal traveling route to go to each of the different locations. The user will input a city in California that they want to go to, which will generate the sightseeing recommendations, then generate hotel recommendations, and the optimal routes between the sightseeing locations and the hotel location.
 
