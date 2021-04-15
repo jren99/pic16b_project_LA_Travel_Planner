@@ -1,4 +1,8 @@
-# pic16b_project
+# PIC16b Project
+Group Members:
+Ashley Lu
+Jaya Ren
+Jingxuan Zhang
 
 ## Travel Planning
 1. **Abstract:**
