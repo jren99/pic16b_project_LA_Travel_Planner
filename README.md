@@ -21,7 +21,7 @@ Partial success will be defined by a web app that only generates the optimal rou
 4. **Tools/Skills Required:**
 - Web scraping: We need to have information by web scraping TripAdvisor to provide both the hotel and sightseeing recommendations for the user. We have searched online that there are many available tutorials about how to use web scraping to get information from TripAdvisor that we can self-learning them.
 - Python Plotly Package (& Pandas Package): It will be better if we will also be able to generate geographic visualizations for plotting sightseeing recommendations based on the information by web scraping from TripAdvisor.
-- Google Maps API: We may use complex visualizations for generating maps of traveling routes by Google Maps API. There are also tutorials online about how to use it that we may need to self-learn.
+- Google Maps API: We may use complex visualizations for generating maps of traveling routes by Google Maps API. There are also tutorials online about how to use it that we may need to self-learn. We might need to learn how to find the optimal route based on the locations that the user wants to go. If we want manually design the optimal route, we might need to also provide options for the user to select, such as whether the user has a car. These options will be very important, which will decide whether the optimal route is reasonable and workable in reality instead of being an ideal route.
 - Webapp skills: We will try to learn how to make our ideas shown on a webapp in the later stage of our project. There are also tutorials online about how to make a webapp.
 
 5. **Risks:** 
