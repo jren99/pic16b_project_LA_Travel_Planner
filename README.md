@@ -1,5 +1,5 @@
 # PIC16b Project
-Group Members:
+**Group Members:**
 
 Ashley Lu
 
