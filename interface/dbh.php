@@ -1,8 +1,8 @@
 <?php
 
 $server = "localhost";
-$username = "localhost";
-$password = "localhost";
-$dbname = "dbphpsearch;
+$username = "root";
+$password = "";
+$dbname = "dbphpsearch";
 
 $conn = mysqli_connect($server, $username, $password, $dbname);

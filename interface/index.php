@@ -8,10 +8,10 @@
     <a href="#">About Us</a>
     <a href="#">Contact Us</a>
 <!-- Heaadings -->
-<h1>Travellers at CA</h1>
+<h1>Travellers at LA</h1>
     
 <b>
-    Plan your trip to CA with just a few clicks
+    Plan your trip to LA with just a few clicks
 </b>
          
          
@@ -26,25 +26,26 @@
 
 <!-- The form -->
 <form class="searchbox" action="search.php" method="POST">
-    <input type="text" placeholder="Search.." name="search">
+    <input type="text" placeholder="Enter museum to see popular museums in LA" name="search">
     <button type="submit" name="submit-search"><i class="fa fa-search"></i></button>
 </form>
 
 <div class="places-container">
     <?php 
-        $sql = "SELECT * FROM places";
+        $sql = "SELECT * FROM top150_touristsite";
         $result = mysqli_query($conn, $sql);
         $queryResults = mysqli_num_rows($result);
 
         if($queryResults >0){
             while($row = mysqli_fetch_assoc($result)){
                 echo "<div class = 'place-box'>
-                    <h3>".$row['a_title']."</h3>
-                    <p".$row['a_descrp']."</p>
-                </div>"
+                    <h3><a href=".$row['Site Link'].">".$row['Tourist Site Name']."</a></h3>
+                    <p> Rank: ".$row['Rank']."</p>
+                </div>";
             }
         }
     ?>
+    
 </div>
 </body>
 
