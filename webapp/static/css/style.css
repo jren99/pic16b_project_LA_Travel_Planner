@@ -1,0 +1,82 @@
+html {
+    font-family: sans-serif;
+    background:rgb(255, 255, 255);
+    padding: 1rem;
+}
+
+body {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: rgb(62, 74, 97);
+    font-family: 'Georgia';
+    margin: 1rem 0;
+    text-align: center;
+}
+
+h2 {
+    color: rgb(131, 146, 170);
+    font-family: 'Georgia';
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 1em;
+}
+
+h4 {
+    color: rgb(78, 94, 126);
+    font-family: 'Georgia';
+    margin: 1rem 0;
+    text-align: right;
+    font-size: 1em;
+}
+
+a {
+    color: rgb(255, 255, 255);
+    font-family: 'Georgia';
+    font-size: 0.97em;
+    text-decoration: none;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid lightgray;
+}
+
+nav {
+    color:rgb(62, 74, 97);
+    background:rgb(175, 198, 241);
+    padding: 10 rem;
+    border-radius: 20px;
+}
+
+nav ul  {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    display: block;
+    padding: 0.5rem;
+}
+
+.content {
+    padding: 0 1rem 1rem;
+    background: white;
+    border-radius: 25px;
+}
+
+.flash {
+    text-align: center;
+    margin: 1em 0;
+    padding: 1em;
+    background: #cae6f6;
+    border: 1px solid #377ba8;
+}
+
+p1 {
+   color:rgb(155, 117, 117);
+}

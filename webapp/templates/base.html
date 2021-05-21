@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <nav>
+    <h1>Travel Planner</h1>
+    <h4>Designed by PIC16B 'The Traveler'</h4>
+    <ul>
+        <li><a href="{{ url_for('main') }}">Main page</a></li>
+        <li><a href="{{ url_for('touristsite') }}">Recommended Tourist Sites</a></li>
+        <li><a href="{{ url_for('hotel') }}">Recommended Hotels</a></li>
+        <li><a href="{{ url_for('restaurant') }}">Recommended Restaurants</a></li>
+        <li><a href="{{ url_for('route') }}">Route Generator</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
+    </ul>
+  </nav>
+  <section class="content">
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+    {% block content %}{% endblock %}
+  </section>
