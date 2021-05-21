@@ -6,4 +6,14 @@
 
 {% block content %}
   <p>Here are a list of the <b>recommended tourist sites</b> on TripAdvisor.</p>
+  <form method="post">
+    <label for="name">What kind of the tourist sites you want to go? </label>
+    <input name="name" id="site">
+    <input type="submit" value="try museum">
+  </form>
+  {% if name == None %}
+  <p>Hello!  This is the optimized route designed for you.</p>
+  {% else %}
+  <p1>Don't know which tourist site you want to go to? That's okay! Please take a look at our main page! Hope there are at least one tourist sites that you are interested in~</p1>
+  {% endif %}
 {% endblock %}
