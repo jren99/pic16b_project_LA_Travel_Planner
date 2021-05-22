@@ -61,6 +61,14 @@ def find_location(visit_html):
 
 dataframe_touristsite = pd.read_csv('2520_touristsite.csv')
 dataframe_hotels = pd.read_csv('450_hotel.csv')
+list_colors = [
+    "red",
+    "orange",
+    "yellow",
+    "green",
+    "blue",
+    "purple"
+]
 
 @app.route('/route/', methods=['POST', 'GET'])
 def route():
@@ -77,13 +85,42 @@ def route():
 def route_plot(name):
     want_to_go_name = request.form['site']
     hotel_want_to_go_name = request.form['hotel']
+    travel_length = request.form['days']
 
     visit_html_tourist = scraper.visit_tourist(dataframe_touristsite, want_to_go_name)
     locations = scraper.find_location(visit_html_tourist)
     hotel_visit_html = hotel_scraper.visit_hotel(dataframe_hotels, hotel_want_to_go_name)
     hotel_location=hotel_scraper.find_location(hotel_visit_html)
+
+    geolocator = Nominatim(user_agent = "pic16b")
+    locations = location_cleaner(locations)
+    df = pd.DataFrame(columns = ["Address", "Longitude", "Latitude"])
+    for location in locations:
+        loc = geolocator.geocode(location) # geocoding the location
+        df.loc[len(df.index)] = [loc, loc.longitude, loc.latitude]
     
-    return render_template('route.html', name=name, location=location)
+    hotel = pd.DataFrame(columns = ["Address", "Longitude", "Latitude"])
+    hotel_locations = location_cleaner(hotel_location)
+    for location in hotel_locations:
+        loc = geolocator.geocode(location) # geocoding the location
+        hotel.loc[len(df.index)] = [loc, loc.longitude, loc.latitude]
+
+    url = "http://router.project-osrm.org/route/v1/car/-118.475712,34.076951;-118.300293,34.118219;-118.361879,34.138321"
+    r = requests.get(url) # getting the request
+    res = r.json()
+    polyline.decode('yj~nEh|brUzG~AeAhH~IwBjL}Tx_@eXag@wIkDoGpFyHzkBo{Ahk@yT{@iGmTyhAuwD{iGu_AcjBy@whHacAJU}kBkd@a@aT_kBqZyI{Xf`@{\\hJlGdJZ|VnG_L|MkAqW}AeGyOz\\iJ`Y{^jZlHpSjkBbNXSxgBc_@~s@cz@rWshAfgAsVj{@qNpQcC}D')
+
+    coordinates = locations_per_day(df, travel_length)
+
+    route_list = []
+    for i in range(len(coordinates)):
+        test_route = get_route(coordinates[i], hotel)
+        route_list.append(test_route)
+
+    maps = []
+    for i in range(len(route_list)):
+        maps.append(get_map(route_list[i], list_colors[i]))
+        return render_template('route.html', name=name, location=location)
 
 
 @app.route('/contact/')
