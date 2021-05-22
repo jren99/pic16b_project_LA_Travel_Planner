@@ -32,10 +32,22 @@ h4 {
     font-size: 1em;
 }
 
-a {
+.mainheader {
     color: rgb(255, 255, 255);
     font-family: 'Georgia';
     font-size: 0.97em;
+    text-decoration: none;
+}
+
+.filter {
+    color:mediumslateblue;
+    font-family: 'Georgia';
+    text-decoration: none;
+}
+
+.newkeyword {
+    color:palevioletred;
+    font-family: 'Georgia';
     text-decoration: none;
 }
 

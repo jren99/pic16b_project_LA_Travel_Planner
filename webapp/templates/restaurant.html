@@ -7,9 +7,38 @@
 {% block content %}
   <p>Here is a list of the <b>recommended restaurants</b> on TripAdvisor.</p>
   <form method="post">
-    <label for="name">What kind of the restaurants you want to go? </label>
+    <label for="name">Which style of the restaurants you want to go? (Please capitalize the first letter of the keyword.) </label>
+    <br>
     <input name="name" id="site">
     <input type="submit" value="try Japanese">
+  </form>
+  {% if name %}
+  <p>After filtering based on your keyword...</p>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/restaurant/{{name}}/">Click here to see all the possible restaurants</a></li>
+  </ul>
+  <ul>
+    <li><a class="newkeyword" href="http://127.0.0.1:5000/restaurant/">Try a new keyword</a></li>
+  </ul>
+  <table class="table">
+    <tr class="restauranttable__header">
+      {% for header in headings_update %}
+      <th class="restauranttable__cell">
+        {{header}}
+      </th>
+      {% endfor %}
+    </tr>
+    {% for row in data_update %}
+    <tr class="restauranttable__row">
+      {% for cell in row %}
+      <td class="restauranttable__cell">
+        {{cell}}
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
+  {% else %}
   <table class="table">
     <tr class="restauranttable__header">
       {% for header in headings %}
@@ -28,4 +57,5 @@
     </tr>
     {% endfor %}
   </table>
+{% endif %}
 {% endblock %}

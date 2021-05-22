@@ -6,12 +6,12 @@
 
 {% block content %}
   <form method="post">
-      <label for="name">What are the tourist sites you want to go? (*please input the names of the tourist sites separated by a period)</label>
-      <input name="name" id="name">
+      <label for="name">What are the places(tourist sites/restaurants/hotels) you want to go? (*please input the names of the tourist sites separated by a period)</label>
+      <input name="name" class="split" id="name">
       <input type="submit" value="Search for an optimized route">
   </form>
-  {% if name == None %}
-  <p>Hello!  This is the optimized route designed for you.</p>
+  {% if name %}
+  <p1>Hello! This is the optimized route designed for you.</p1>
   {% else %}
   <p1>Don't know which tourist site you want to go to? That's okay! Please take a look at our main page! Hope there are at least one tourist sites that you are interested in~</p1>
   {% endif %}
