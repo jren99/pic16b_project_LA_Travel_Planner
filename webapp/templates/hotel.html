@@ -5,5 +5,25 @@
 {% endblock %}
 
 {% block content %}
-  <p>Here are a list of the <b>recommended hotels</b> on TripAdvisor.</p>
+  <p>Here is a list of the <b>recommended hotels</b> on TripAdvisor.</p>
+  <table class="table">
+    <tr class="hoteltable__header">
+      {% for header in headings %}
+      <th class="hoteltable__cell">
+        {{header}}
+      </th>
+      {% endfor %}
+    </tr>
+    {% for row in data %}
+    <tr class="hoteltable__row">
+      {% for cell in row %}
+      <td class="hoteltable__cell">
+        {{cell}}
+      </td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </table>
 {% endblock %}
+
+

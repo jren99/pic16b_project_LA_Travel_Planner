@@ -55,17 +55,32 @@ def route():
 def contact():
     return render_template('contact.html')
 
+dataframe_ts = pd.read_csv('2520_touristsite.csv')
+dataframe_touristsite = dataframe_ts[["Rank", "Tourist Site Name", "Site Link"]]
+touristsite_header = tuple(dataframe_touristsite)
+touristsite_body = tuple(dataframe_touristsite.itertuples(index=False, name=None))
+
 @app.route('/touristsite/')
 def touristsite():
-    return render_template('touristsite.html')
+    return render_template('touristsite.html',headings=touristsite_header, data=touristsite_body)
+
+dataframe_ht = pd.read_csv('450_hotel.csv')
+dataframe_hotel = dataframe_ht[["Rank", "Hotel Name", "Rate", "Site Link"]]
+hotel_header = tuple(dataframe_hotel)
+hotel_body = tuple(dataframe_hotel.itertuples(index=False, name=None))
 
 @app.route('/hotel/')
 def hotel():
-    return render_template('hotel.html')
+    return render_template('hotel.html',headings=hotel_header, data=hotel_body)
+
+dataframe_rt = pd.read_csv('13460_restaurant.csv')
+dataframe_restaurant = dataframe_rt[["Rank", "Restaurant Name", "Style", "Rate", "Site Link"]]
+restaurant_header = tuple(dataframe_restaurant)
+restaurant_body = tuple(dataframe_restaurant.itertuples(index=False, name=None))
 
 @app.route('/restaurant/')
 def restaurant():
-    return render_template('restaurant.html')
+    return render_template('restaurant.html',headings=restaurant_header, data=restaurant_body)
 
 '''
 @app.route('/delete/<int:id>')

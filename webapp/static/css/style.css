@@ -80,3 +80,45 @@ nav ul li a {
 p1 {
    color:rgb(155, 117, 117);
 }
+
+.table {
+    border-spacing: 0;
+    margin: 1rem;
+    background-color: rgb(233, 230, 235);
+}
+
+.touristsitetable__row:nth-child(even) {
+    background-color:rgb(255, 250, 235);
+}
+
+.touristsitetable__header {
+    text-align: left;
+}
+
+.touristsitetable__cell {
+    padding: 8px;
+}
+
+.hoteltable__row:nth-child(even) {
+    background-color:rgb(255, 250, 235);
+}
+
+.hoteltable__header {
+    text-align: left;
+}
+
+.hoteltable__cell {
+    padding: 8px;
+}
+
+.restauranttable__row:nth-child(even) {
+    background-color:rgb(255, 250, 235);
+}
+
+.restauranttable__header {
+    text-align: left;
+}
+
+.restauranttable__cell {
+    padding: 8px;
+}
