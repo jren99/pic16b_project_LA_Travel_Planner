@@ -7,9 +7,10 @@ import folium
 import import_ipynb
 import polyline
 import random
-import webscraping_code_touristsite_top150 as scraper
+import ipynb
+import route_functions 
+import webscraping_code_touristsite_all as scraper
 import webscraping_code_hotel_all as hotel_scraper
-from ipynb.fs.full.route-visulization import location_cleaner, locations_per_day,get_route, get_map
 from geopy.geocoders import Nominatim
 
 
@@ -81,7 +82,7 @@ def route():
             return render_template('route.html')
 
 
-@app.route('/route/<site/', methods=['POST', 'GET'])
+@app.route('/route/<site>/', methods=['POST', 'GET'])
 def route_plot(name):
     want_to_go_name = request.form['site']
     hotel_want_to_go_name = request.form['hotel']
