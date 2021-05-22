@@ -3,6 +3,14 @@ import pandas as pd
 import csv
 import requests
 from bs4 import BeautifulSoup as soup
+import folium
+import import_ipynb
+import polyline
+import random
+import webscraping_code_touristsite_top150 as scraper
+import webscraping_code_hotel_all as hotel_scraper
+from ipynb.fs.full.route-visulization import location_cleaner, locations_per_day,get_route, get_map
+from geopy.geocoders import Nominatim
 
 
 app = Flask(__name__)
@@ -51,6 +59,8 @@ def find_location(visit_html):
     
     return location
 
+dataframe_touristsite = pd.read_csv('2520_touristsite.csv')
+dataframe_hotels = pd.read_csv('450_hotel.csv')
 
 @app.route('/route/', methods=['POST', 'GET'])
 def route():
@@ -58,15 +68,21 @@ def route():
         return render_template('route.html')
     else:
         try:
-            return render_template('route.html', name=request.form['name'])
+            return render_template('route.html', name=request.form['site'])
         except:
             return render_template('route.html')
 
 
-@app.route('/route/<name>/', methods=['POST', 'GET'])
+@app.route('/route/<site/', methods=['POST', 'GET'])
 def route_plot(name):
-    visit_html_tourist = visit_tourist(dataframe_touristsite, name)
-    location = find_location(visit_html_tourist)
+    want_to_go_name = request.form['site']
+    hotel_want_to_go_name = request.form['hotel']
+
+    visit_html_tourist = scraper.visit_tourist(dataframe_touristsite, want_to_go_name)
+    locations = scraper.find_location(visit_html_tourist)
+    hotel_visit_html = hotel_scraper.visit_hotel(dataframe_hotels, hotel_want_to_go_name)
+    hotel_location=hotel_scraper.find_location(hotel_visit_html)
+    
     return render_template('route.html', name=name, location=location)
 
 
