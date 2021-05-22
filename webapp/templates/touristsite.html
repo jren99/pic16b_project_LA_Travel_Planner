@@ -6,6 +6,10 @@
 
 {% block content %}
   <p>Here is a list of the <b>recommended tourist sites</b> on TripAdvisor.</p>
+  <form method="post">
+    <label for="name">What kind of the tourist sites you want to go? </label>
+    <input name="name" id="site">
+    <input type="submit" value="try museum">
   <table class="table">
     <tr class="touristsitetable__header">
       {% for header in headings %}
