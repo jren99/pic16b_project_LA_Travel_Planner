@@ -1,47 +1,56 @@
 from flask import Flask, render_template, url_for, request, redirect
-#from flask_sqlalchemy import SQLAlchemy
-#from datetime import datetime
 import pandas as pd
 import csv
 import requests
 from bs4 import BeautifulSoup as soup
 
+
 app = Flask(__name__)
-'''
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-db = SQLAlchemy(app)
-
-class Todo(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    content = db.Column(db.String(200), nullable=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
-
-    def __repr__(self):
-        return '<Task %r>' % self.id
-
-
-@app.route('/', methods=['POST', 'GET'])
-def main():
-    if request.method == 'POST':
-        task_content = request.form['content']
-        new_task = Todo(content=task_content)
-
-        try:
-            db.session.add(new_task)
-            db.session.commit()
-            return redirect('/')
-        except:
-            return 'There was an issue adding your task'
-
-    else:
-        tasks = Todo.query.order_by(Todo.date_created).all()
-        return render_template('main.html', tasks=tasks)
-'''
 
 @app.route('/', methods=['POST', 'GET'])
 def main():
     return render_template('main.html')
+
+
+def visit_tourist(df, want_to_go_name):
+    each_name = want_to_go_name.split(".")
+    
+    for name in each_name:
+        if name == each_name[0]:
+            visit_html = df[["Tourist Site Name", "Site Link"]][df["Tourist Site Name"] == name]
+        else:
+            visit_html = visit_html.append(df[["Tourist Site Name", "Site Link"]][df["Tourist Site Name"] == name])
+    
+    return visit_html
+
+def find_location(visit_html):
+    
+    location = []
+    
+    for link in visit_html["Site Link"]:
+        html = requests.get(link)
+        bsobj = soup(html.content, "lxml")
+    
+        for loc in bsobj.find_all("script", type = "application/ld+json"):
+            if "streetAddress" in loc.string:
+                find_part_html = loc.string.split("{")
+                for street in find_part_html:
+                    if "streetAddress" in street:
+                        for value in street.split(","):
+                            if "streetAddress" in value:
+                                street_name = value.split(":")[1][1:][:-1] + ", "
+                                   
+                            if "addressLocality" in value:
+                                city_name = value.split(":")[1][1:][:-1] + ", "
+                                 
+                            if "postalCode" in value:
+                                zipcode = "CA " + value.split(":")[1][1:][:-1]
+                            
+        location_info = street_name + city_name + zipcode
+        location.append(location_info)
+    
+    return location
+
 
 @app.route('/route/', methods=['POST', 'GET'])
 def route():
@@ -52,6 +61,14 @@ def route():
             return render_template('route.html', name=request.form['name'])
         except:
             return render_template('route.html')
+
+
+@app.route('/route/<name>/', methods=['POST', 'GET'])
+def route_plot(name):
+    visit_html_tourist = visit_tourist(dataframe_touristsite, name)
+    location = find_location(visit_html_tourist)
+    return render_template('route.html', name=name, location=location)
+
 
 @app.route('/contact/')
 def contact():
@@ -123,35 +140,6 @@ def restaurant_name(name):
     dataframe_restaurant_update = dataframe_restaurant_drop[dataframe_restaurant_drop["Style"].str.contains(str(name))]
     restaurant_body_update = tuple(dataframe_restaurant_update.itertuples(index=False, name=None))
     return render_template('restaurant.html', name=name, headings_update=restaurant_header, data_update=restaurant_body_update)
-
-'''
-@app.route('/delete/<int:id>')
-def delete(id):
-    task_to_delete = Todo.query.get_or_404(id)
-
-    try:
-        db.session.delete(task_to_delete)
-        db.session.commit()
-        return redirect('/')
-    except:
-        return 'There was a problem deleting that task'
-
-@app.route('/update/<int:id>', methods=['GET', 'POST'])
-def update(id):
-    task = Todo.query.get_or_404(id)
-
-    if request.method == 'POST':
-        task.content = request.form['content']
-
-        try:
-            db.session.commit()
-            return redirect('/')
-        except:
-            return 'There was an issue updating your task'
-
-    else:
-        return render_template('update.html', task=task)
-'''
 
 if __name__ == "__main__":
     app.run(debug=True)
