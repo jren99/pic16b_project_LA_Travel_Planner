@@ -6,24 +6,33 @@
 
 {% block content %}
   <form method="post">
-      <label for="site">What are the places(tourist sites/restaurants/hotels) you want to go? (Please input the names of the tourist sites separated by a period.)</label>
-      <input name="site" class="split" id="site">
+      <label for="site">What are the tourist sites you want to go?</label>
       <br>
-      <label for="days">How many days do you plan to stay?</label>
-      <input name="days" id="days">
+      <input name="site" class="split">
       <br>
-      <label for="hotel">Which hotel do you plan to stay</label>
-      <input name="hotel" id="hotel">
+      <label for="day">How many days do you plan to stay?</label>
       <br>
+      <input name="day" class="split">
+      <br>
+      <label for="hotel">Which hotel do you plan to stay?</label>
+      <br>
+      <input name="hotel" class="split">
+      <br>
+      <label for="transportation">What mode of transportation would you like to use? (Please specify car, bike, or foot.)</label>
+      <br>
+      <input name="transportation" class="split">
       <input type="submit" value="Search for an optimized route">
   </form>
-  {% if name %}
-  <p1>Hello! This is the optimized route designed for you.</p1>
+  {% if site %}
   <ul>
-    <li><a class="filter" href="http://127.0.0.1:5000/route/{{site}}/">Click here to see the optimized route.</a></li>
+    <li><a class="filter" href="http://127.0.0.1:5000/route/{{site}}/{{day}}/{{hotel}}/{{transportation}}/">Click here to see the optimized route.</a></li>
   </ul>
-  {{ location }}
+  {% for map in maps %}
+  {{ map }}
+  {% endfor %}
+
   {% else %}
-  <p1>Don't know which tourist site you want to go to? That's okay! Please take a look at our main page! Hope there's at least one tourist site that you are interested in~</p1>
+  <p1>Don't know which tourist site you want to go to? That's okay! Please take a look at our main page! Hope there are at least one tourist sites that you are interested in~</p1>
   {% endif %}
+
 {% endblock %}
