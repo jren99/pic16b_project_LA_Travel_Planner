@@ -23,6 +23,7 @@ Jingxuan Zhang
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#Execution">Execution</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -72,6 +73,11 @@ To get a local copy up and running follow these simple steps.
    pip install folium
    pip install polyline
 
+   ```
+### Execution
+```sh
+   cd webapp
+   python3 app.py
    ```
 
 
