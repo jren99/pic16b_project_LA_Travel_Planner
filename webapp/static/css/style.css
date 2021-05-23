@@ -49,12 +49,6 @@ hr {
     border-top: 1px solid lightgray;
 }
 
-nav {
-    color:rgb(62, 74, 97);
-    background:rgb(175, 198, 241);
-    padding: 10 rem;
-    border-radius: 20px;
-}
 
 nav ul  {
     list-style: none;
@@ -83,10 +77,6 @@ nav ul li a:hover {
     background-color: rgb(111, 143, 175);
   }
 
-nav ul li:last-child {
-    border-right: none;
-  }
-  
 
 .content {
     padding: 0 1rem 1rem;
@@ -147,3 +137,9 @@ p1 {
 .restauranttable__cell {
     padding: 8px;
 }
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30%;
+  }

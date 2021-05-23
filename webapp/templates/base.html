@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+   </nav>
     <nav>
-      <ul>
+      <ul >
         <li><a href="{{ url_for('main') }}">Home</a></li>
         <li><a href="{{ url_for('touristsite') }}">Tourist Attraction<br>Recommendations</a></li>
         <li><a href="{{ url_for('hotel') }}">Hotel<br>Recommendations</a></li>
@@ -16,6 +17,7 @@
     </ul>
   </nav>
   <h1>LA Travel Planner</h1>
+  <image src="{{url_for('static', filename='css/Logo.jpg')}}" class = "logo"></image>
   <h4>Designed by PIC16B 'The Traveler'</h4>
   <section class="content">
     <header>
