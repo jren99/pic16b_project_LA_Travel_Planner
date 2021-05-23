@@ -21,6 +21,7 @@
       <label for="transportation">What mode of transportation would you like to use? (Please specify car, bike, or foot.)</label>
       <br>
       <input name="transportation" class="split">
+      <br>
       <input type="submit" value="Search for an optimized route">
   </form>
   {% if site %}
@@ -28,7 +29,7 @@
   <ul>
     <li><a class="filter" href="http://127.0.0.1:5000/route/{{site}}/{{day}}/{{hotel}}/{{transportation}}/">Click here to generate route.</a></li>
   </ul>
-  <p1>Step One:</p1>
+  <p1>Step Two:</p1>
   {% if day == "1" %}
   <ul>
     <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-One route.</a></li>
@@ -205,7 +206,7 @@
     <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-Ten route.</a></li>
   </ul>
   {% endif %}
-  <p1>Try again:</p1>
+  <p1>Plan a new trip</p1>:</p1>
   <ul>
     <li><a class="newkeyword" href="http://127.0.0.1:5000/route/">Click here.</a></li>
   </ul>
