@@ -56,23 +56,22 @@ When it comes to traveling, sometimes it can be a struggle to plan out where you
 
 To get a local copy up and running follow these simple steps.
 
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/github_username/repo_name.git
+   git clone https://github.com/jren99/pic16b_project.git
    ```
-2. Install NPM packages
+2. Install packages
    ```sh
-   npm install
+   pip install pandas
+   pip install Flask
+   pip install beautifulsoup4
+   pip install geopy
+   pip install folium
+   pip install polyline
+
    ```
 
 
