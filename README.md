@@ -38,7 +38,3 @@ In the case that we are not able to accomplish all of our goals, "partial succes
 6. **Ethics:**
 Depending on what recommendations Tripadvisor gives us, maybe the sightseeing locations will privilege some cultural sites above others, depending on what races and ethnicities are more prevalent in a location. Also, if we’re recommending sightseeing and hotel locations, Tripadvisor might favor larger and more popular sites rather than smaller sites. As popularity is largely based on positive reviews, it's hardly objective since there are many bogus positive reviews.
 
-7. **Tentative Timeline:**
-- After two weeks: We want to be able to fetch a list of sightseeing places based on the input city. To achieve this, we might need to build a database by scraping data from some sources first, and then learn how to fetch relevent data, possibly using sql.
-- After four weeks: We want to learn how to work with API to generate recommended routes for traveling, and maybe generate a list of hotel recommendations. For the hotel recommendations, it can be a possible machine learning project.
-- After six weeks: We want to set up a webapp that allows user to enter a city and then returns places, routes, and hotels recommendations.
