@@ -2,7 +2,9 @@
 **Contributers:**
 
 Ashley Lu
+
 Jaya Ren
+
 Jingxuan Zhang
 
 ## LA Travel planner
