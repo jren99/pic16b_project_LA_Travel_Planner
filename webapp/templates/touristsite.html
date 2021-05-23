@@ -9,13 +9,13 @@
   <form method="post">
     <label for="name">What kind of the tourist sites you want to go? (Please capitalize the first letter of the keyword.) </label>
     <br>
-    <input name="name" id="touristsite">
-    <input type="submit" placeholder = "try museum" value="search">
+    <input name="name" id="site">
+    <input type="submit" placeholder = "try Museum" value="search">
   </form>
   {% if name %}
   <p>After filtering based on your keyword...</p>
   <ul>
-    <li><a class="filter" href="http://127.0.0.1:5000/touristsite/{{name}}/">Click here to see all the possible tourist sites</a></li>
+    <li><a class="filter" href="http://127.0.0.1:5000/touristsite/{{name}}/">Click here to see all the possible hotels</a></li>
   </ul>
   <ul>
     <li><a class="newkeyword" href="http://127.0.0.1:5000/touristsite/">Try a new keyword</a></li>

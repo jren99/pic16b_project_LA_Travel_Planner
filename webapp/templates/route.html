@@ -6,15 +6,15 @@
 
 {% block content %}
   <form method="post">
-      <label for="site">What are the tourist sites you want to go?</label>
+      <label for="site">What are the tourist sites you want to go? (Please capitalize the first letter of each word and separated each tourist site by a period.) </label>
       <br>
       <input name="site" class="split">
       <br>
-      <label for="day">How many days do you plan to stay?</label>
+      <label for="day">How many days do you plan to stay? (Please input a positive interger smaller or equal than 10.) </label>
       <br>
       <input name="day" class="split">
       <br>
-      <label for="hotel">Which hotel do you plan to stay?</label>
+      <label for="hotel">Which hotel do you plan to stay? (Please capitalize the first letter of each word and ended by a period.)</label>
       <br>
       <input name="hotel" class="split">
       <br>
@@ -24,13 +24,191 @@
       <input type="submit" value="Search for an optimized route">
   </form>
   {% if site %}
+  <p1>Step One:</p1>
   <ul>
-    <li><a class="filter" href="http://127.0.0.1:5000/route/{{site}}/{{day}}/{{hotel}}/{{transportation}}/">Click here to see the optimized route.</a></li>
+    <li><a class="filter" href="http://127.0.0.1:5000/route/{{site}}/{{day}}/{{hotel}}/{{transportation}}/">Click here to generate route.</a></li>
   </ul>
-  {% for map in maps %}
-  {{ map }}
-  {% endfor %}
-
+  <p1>Step One:</p1>
+  {% if day == "1" %}
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-One route.</a></li>
+  </ul>
+  {% elif day == "2" %}
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map2/">Click here to see the Day-One route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-Two route.</a></li>
+  </ul>
+  {% elif day == "3" %}
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map3/">Click here to see the Day-One route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map2/">Click here to see the Day-Two route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-Three route.</a></li>
+  </ul>
+  {% elif day == "4" %}
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map4/">Click here to see the Day-One route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map3/">Click here to see the Day-Two route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map2/">Click here to see the Day-Three route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-Four route.</a></li>
+  </ul>
+  {% elif day == "5" %}
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map5/">Click here to see the Day-One route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map4">Click here to see the Day-Two route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map3/">Click here to see the Day-Three route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map2/">Click here to see the Day-Four route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-Five route.</a></li>
+  </ul>
+  {% elif day == "6" %}
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map6/">Click here to see the Day-One route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map5/">Click here to see the Day-Two route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map4/">Click here to see the Day-Three route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map3/">Click here to see the Day-Four route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map2/">Click here to see the Day-Five route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-Six route.</a></li>
+  </ul>
+  {% elif day == "7" %}
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map7/">Click here to see the Day-One route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map6/">Click here to see the Day-Two route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map5/">Click here to see the Day-Three route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map4/">Click here to see the Day-Four route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map3/">Click here to see the Day-Five route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map2/">Click here to see the Day-Six route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-Seven route.</a></li>
+  </ul>
+  {% elif day == "8" %}
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map8/">Click here to see the Day-One route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map7/">Click here to see the Day-Two route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map6/">Click here to see the Day-Three route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map5/">Click here to see the Day-Four route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map4/">Click here to see the Day-Five route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map3/">Click here to see the Day-Six route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map2/">Click here to see the Day-Seven route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-Eight route.</a></li>
+  </ul>
+  {% elif day == "9" %}
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map9/">Click here to see the Day-One route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map8/">Click here to see the Day-Two route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map7/">Click here to see the Day-Three route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map6/">Click here to see the Day-Four route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map5/">Click here to see the Day-Five route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map4/">Click here to see the Day-Six route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map3/">Click here to see the Day-Seven route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map2/">Click here to see the Day-Eight route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-Nine route.</a></li>
+  </ul>
+  {% elif day == "10" %}
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map10/">Click here to see the Day-One route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map9/">Click here to see the Day-Two route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map8/">Click here to see the Day-Three route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map7/">Click here to see the Day-Four route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map6/">Click here to see the Day-Five route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map5/">Click here to see the Day-Six route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map4/">Click here to see the Day-Seven route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map3/">Click here to see the Day-Eight route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map2/">Click here to see the Day-Nine route.</a></li>
+  </ul>
+  <ul>
+    <li><a class="filter" href="http://127.0.0.1:5000/map1/">Click here to see the Day-Ten route.</a></li>
+  </ul>
+  {% endif %}
+  <p1>Try again:</p1>
+  <ul>
+    <li><a class="newkeyword" href="http://127.0.0.1:5000/route/">Click here.</a></li>
+  </ul>
   {% else %}
   <p1>Don't know which tourist site you want to go to? That's okay! Please take a look at our main page! Hope there are at least one tourist sites that you are interested in~</p1>
   {% endif %}

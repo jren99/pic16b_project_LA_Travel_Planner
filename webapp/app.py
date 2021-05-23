@@ -224,8 +224,51 @@ def route_plot(site, day, hotel, transportation):
     maps = []
     for i in range(len(route_list)):
         maps.append(get_map(route_list[i], list_colors[i], addresses[i], hotel_df))
+    
+    for i in range(0, len(maps)):
+        maps[i].save("templates/map"+str(i)+".html")
 
     return render_template('route.html', site=site, hotel=hotel, day=day, transportation=transportation, maps=maps)
+
+@app.route('/map1/')
+def route_map1():
+    return render_template('map0.html')
+
+@app.route('/map2/')
+def route_map2():
+    return render_template('map1.html')
+
+@app.route('/map3/')
+def route_map3():
+    return render_template('map2.html')
+
+@app.route('/map4/')
+def route_map4():
+    return render_template('map3.html')
+
+@app.route('/map5/')
+def route_map5():
+    return render_template('map4.html')
+
+@app.route('/map6/')
+def route_map6():
+    return render_template('map5.html')
+
+@app.route('/map7/')
+def route_map7():
+    return render_template('map6.html')
+
+@app.route('/map8/')
+def route_map8():
+    return render_template('map7.html')
+
+@app.route('/map9/')
+def route_map9():
+    return render_template('map8.html')
+
+@app.route('/map10/')
+def route_map10():
+    return render_template('map9.html')
 
 @app.route('/contact/')
 def contact():
@@ -242,7 +285,7 @@ def touristsite():
             return render_template('touristsite.html',headings=touristsite_header, data=touristsite_body)
     else:
         try:
-            return render_template('touristsite.html', name=request.form['names'],headings=touristsite_header, data=touristsite_body)
+            return render_template('touristsite.html', name=request.form['name'],headings=touristsite_header, data=touristsite_body)
         except:
             return render_template('touristsite.html',headings=touristsite_header, data=touristsite_body)
 
