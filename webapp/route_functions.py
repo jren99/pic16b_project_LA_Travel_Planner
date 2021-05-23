@@ -1,5 +1,22 @@
+import scraper_functions
+import pandas as pd
+import csv
+import requests
+from bs4 import BeautifulSoup as soup
+import folium
+import import_ipynb
+import polyline
+from geopy.geocoders import Nominatim
+import random 
+
+
+
 # Cleans the addresses by removing the code at the end and then removing the last word of the address with each iteration of
 # the loop. OSM sometimes has trouble recognizing addresses that have extra details in the middle of their addresses. 
+dataframe_touristsite = pd.read_csv('2520_touristsite.csv')
+dataframe_hotels = pd.read_csv('450_hotel.csv')
+geolocator = Nominatim(user_agent = "pic16b")
+
 def location_cleaner(locations):
     locations_copy = []
     for location in locations:
@@ -45,7 +62,7 @@ def locations_per_day(df, travel_length):
     
     return (coordinates, addresses)
 
-def get_route(coordinates, hotel, transportation):
+def get_route(coordinates, hotel, transportation=None):
      loc = str(hotel.iloc[0]["Longitude"]) + "," + str(hotel.iloc[0]["Latitude"]) + ";"
      for i in range(len(coordinates)):
          if i == len(coordinates) - 1:
@@ -97,7 +114,7 @@ def get_map(route, route_color, addresses):
     folium.Marker(
         location=route['start_point'],
         icon=folium.Icon(icon='play', color='green'),
-        popup = hotel.iloc[0]["Address"]
+        popup = dataframe_hotels.iloc[0]["Address"]
     ).add_to(m)
 
     folium.Marker(
@@ -114,3 +131,49 @@ def get_map(route, route_color, addresses):
         ).add_to(m)
 
     return m 
+
+def route_plot(want_to_go_name, hotel_want_to_go_name, travel_length):
+    
+    visit_html_tourist = scraper_functions.visit_tourist(dataframe_touristsite, want_to_go_name)
+    locations = scraper_functions.find_location_site(visit_html_tourist)
+    hotel_visit_html = scraper_functions.visit_hotel(dataframe_hotels, hotel_want_to_go_name)
+    hotel_location=scraper_functions.find_location_hotel(hotel_visit_html)
+
+    
+    locations = location_cleaner(locations)
+    df = pd.DataFrame(columns = ["Address", "Longitude", "Latitude"])
+    for location in locations:
+        loc = geolocator.geocode(location) # geocoding the location
+        df.loc[len(df.index)] = [loc, loc.longitude, loc.latitude]
+    
+    hotel = pd.DataFrame(columns = ["Address", "Longitude", "Latitude"])
+    hotel_locations = location_cleaner(hotel_location)
+    for location in hotel_locations:
+        loc = geolocator.geocode(location) # geocoding the location
+        hotel.loc[len(df.index)] = [loc, loc.longitude, loc.latitude]
+
+    url = "http://router.project-osrm.org/route/v1/car/-118.475712,34.076951;-118.300293,34.118219;-118.361879,34.138321"
+    r = requests.get(url) # getting the request
+    res = r.json()
+    polyline.decode('yj~nEh|brUzG~AeAhH~IwBjL}Tx_@eXag@wIkDoGpFyHzkBo{Ahk@yT{@iGmTyhAuwD{iGu_AcjBy@whHacAJU}kBkd@a@aT_kBqZyI{Xf`@{\\hJlGdJZ|VnG_L|MkAqW}AeGyOz\\iJ`Y{^jZlHpSjkBbNXSxgBc_@~s@cz@rWshAfgAsVj{@qNpQcC}D')
+
+    coordinates = locations_per_day(df, travel_length)
+
+    route_list = []
+    for i in range(len(coordinates)):
+        test_route = get_route(coordinates[i], hotel)
+        route_list.append(test_route)
+    list_colors = [
+        "red",
+        "orange",
+        "yellow",
+        "green",
+        "blue",
+        "purple"
+    ]
+    maps = []
+    for i in range(len(route_list)):
+        maps.append(get_map(route_list[i], list_colors[i]))
+    return maps
+
+    

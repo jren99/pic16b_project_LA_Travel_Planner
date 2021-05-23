@@ -1,3 +1,7 @@
+import pandas as pd
+import requests
+from bs4 import BeautifulSoup as soup
+
 def visit_hotel(df, want_to_go_name):
     each_name = want_to_go_name.split(".")
     
