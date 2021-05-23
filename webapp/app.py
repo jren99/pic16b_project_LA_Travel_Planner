@@ -9,8 +9,7 @@ import polyline
 import random
 import ipynb
 import route_functions 
-import webscraping_code_touristsite_all as scraper
-import webscraping_code_hotel_all as hotel_scraper
+import scraper_functions
 from geopy.geocoders import Nominatim
 
 
@@ -77,21 +76,21 @@ def route():
         return render_template('route.html')
     else:
         try:
-            return render_template('route.html', name=request.form['site'])
+            want_to_go_name = request.form['site']
+            hotel_want_to_go_name = request.form['hotel']
+            travel_length = request.form['days']
+            return render_template('route.html', name=request.form.keys())
         except:
             return render_template('route.html')
 
 
 @app.route('/route/<site>/', methods=['POST', 'GET'])
 def route_plot(name):
-    want_to_go_name = request.form['site']
-    hotel_want_to_go_name = request.form['hotel']
-    travel_length = request.form['days']
-
-    visit_html_tourist = scraper.visit_tourist(dataframe_touristsite, want_to_go_name)
-    locations = scraper.find_location(visit_html_tourist)
-    hotel_visit_html = hotel_scraper.visit_hotel(dataframe_hotels, hotel_want_to_go_name)
-    hotel_location=hotel_scraper.find_location(hotel_visit_html)
+    
+    visit_html_tourist = visit_tourist(dataframe_touristsite, want_to_go_name)
+    locations = find_location_site(visit_html_tourist)
+    hotel_visit_html = visit_hotel(dataframe_hotels, hotel_want_to_go_name)
+    hotel_location=find_location_hotel(hotel_visit_html)
 
     geolocator = Nominatim(user_agent = "pic16b")
     locations = location_cleaner(locations)
@@ -121,7 +120,8 @@ def route_plot(name):
     maps = []
     for i in range(len(route_list)):
         maps.append(get_map(route_list[i], list_colors[i]))
-        return render_template('route.html', name=name, location=location)
+
+    return render_template('route.html', name=name, location=location)
 
 
 @app.route('/contact/')
