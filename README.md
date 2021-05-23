@@ -8,7 +8,7 @@ Jaya Ren
 Jingxuan Zhang
 
 ## LA Travel planner
-<img src="Logo.png" alt="logo" width=50%/>
+<img align="center" src="Logo.png" alt="logo" width=40%/>
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
