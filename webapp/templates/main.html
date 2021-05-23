@@ -10,18 +10,18 @@
     are to provide a much simpler solution. </p1>
 
   <p> 
-  <p>You will get a <b>detailed and personalized</b> traveling plan from our route generator under <b>Plan Your Trip!</b> page by simply entering:</p>
+  <p>You will get a <b>detailed and personalized</b> traveling plan from our route generator under <b><a href="{{ url_for('route') }}">Plan Your Trip!</a></b> page by simply entering:</p>
   <ul>
       <li>Attraction(s)</li>
       <li>Hotel</li>
       <li>Vacation Length</li>
       <li>transportation</li>
   </ul>
-  <p>If you are not sure where you want to visit, that's completely fine! Explore our <b>Tourist Attraction Recommendations</b> page to learn more about LA!</p>
+  <p>If you are not sure where you want to visit, that's completely fine! Explore our <b><a href="{{ url_for('touristsite') }}">Tourist Attraction Recommendations</a></b> page to learn more about LA!</p>
 
-  <p>You can also explore the hotels on <b>Hotel Recommendations</b> page</p>
+  <p>You can also explore the hotels on <b><a href="{{ url_for('hotel') }}">Hotel Recommendations</a></b> page</p>
 
-  <p>LA is the heaven for foodies! Definitely take a look at the <b>Restaurant Recommendations</b> page. You won't regret it!</p>
+  <p>LA is the heaven for foodies! Definitely take a look at the <b><a href="{{ url_for('restaurant') }}">Restaurant Recommendations</a></b> page. You won't regret it!</p>
 
   <h5>Disclaimer: Our database is originated from TripAdvisor.</h5>
   
