@@ -22,7 +22,6 @@ Jingxuan Zhang
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
@@ -48,6 +47,7 @@ When it comes to traveling, sometimes it can be a struggle to plan out where you
 * []()
 * []()
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+We used Flask to develop our webapp for this project. Since it's written in Python, it makes it easier for us to call the scraper and route generator we have created. 
 
 
 
