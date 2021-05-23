@@ -6,17 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <nav>
-    <h1>LA Travel Planner</h1>
-    <h4>Designed by PIC16B 'The Traveler'</h4>
-    <ul>
-        <li><a class="mainheader" href="{{ url_for('main') }}">Home page</a></li>
-        <li><a class="mainheader" href="{{ url_for('touristsite') }}">Tourist Attraction Recommendations</a></li>
-        <li><a class="mainheader" href="{{ url_for('hotel') }}">Hotel Recommendations</a></li>
-        <li><a class="mainheader" href="{{ url_for('restaurant') }}">Restaurant Recommendations</a></li>
-        <li><a class="mainheader" href="{{ url_for('route') }}">Plan Your Trip!</a></li>
-        <li><a class="mainheader" href="{{ url_for('contact') }}">Contact Us</a></li>
+      <ul>
+        <li><a href="{{ url_for('main') }}">Home</a></li>
+        <li><a href="{{ url_for('touristsite') }}">Tourist Attraction<br>Recommendations</a></li>
+        <li><a href="{{ url_for('hotel') }}">Hotel<br>Recommendations</a></li>
+        <li><a href="{{ url_for('restaurant') }}">Restaurant<br>Recommendations</a></li>
+        <li><a href="{{ url_for('route') }}">Plan Your Trip!</a></li>
+        <li><a href="{{ url_for('contact') }}">Contact Us</a></li>
     </ul>
   </nav>
+  <h1>LA Travel Planner</h1>
+  <h4>Designed by PIC16B 'The Traveler'</h4>
   <section class="content">
     <header>
       {% block header %}{% endblock %}

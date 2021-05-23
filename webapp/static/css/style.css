@@ -32,13 +32,6 @@ h4 {
     font-size: 1em;
 }
 
-.mainheader {
-    color: rgb(255, 255, 255);
-    font-family: 'Georgia';
-    font-size: 0.97em;
-    text-decoration: none;
-}
-
 .filter {
     color:mediumslateblue;
     font-family: 'Georgia';
@@ -64,16 +57,36 @@ nav {
 }
 
 nav ul  {
-    display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
+    overflow: hidden;
+    background-color: rgb(175, 198, 241);
 }
+
+nav ul li {
+    margin-left: 2px;
+    float: left;
+  }
 
 nav ul li a {
     display: block;
-    padding: 0.5rem;
+    color: white;
+    text-align: center;
+    padding: 14px 22px;
+    text-decoration: none;
+    font-family: 'Georgia';
+    font-size: 0.97em;
 }
+
+nav ul li a:hover {
+    background-color: rgb(111, 143, 175);
+  }
+
+nav ul li:last-child {
+    border-right: none;
+  }
+  
 
 .content {
     padding: 0 1rem 1rem;
