@@ -25,10 +25,16 @@
       <input type="submit" class="split_search" value="Search for an optimized route">
   </form>
   {% if site %}
+  <p1>Please follow the steps below...</p1>
+  <br>
+  <br>
   <p1>Step One:</p1>
   <ul>
     <li><a class="filter" href="http://127.0.0.1:5000/route/{{site}}/{{day}}/{{hotel}}/{{transportation}}/">Click here to generate route.</a></li>
   </ul>
+  <p1>Please wait until the webpage has finished loading.</p1>
+  <br>
+  <br>
   <p1>Step Two:</p1>
   {% if day == "1" %}
   <ul>
