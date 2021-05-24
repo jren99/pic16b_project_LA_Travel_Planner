@@ -11,6 +11,11 @@ body {
     margin: 0 auto;
 }
 
+a{
+    color:rgb(99, 123, 168);
+    font-family: 'Georgia';
+}
+
 h1 {
     color: rgb(62, 74, 97);
     font-family: 'Georgia';
@@ -23,7 +28,7 @@ h2 {
     font-family: 'Georgia';
     margin: 1rem 0;
     text-align: center;
-    font-size: 1em;
+    font-size: 1.3em;
 }
 
 h4 {
@@ -31,6 +36,19 @@ h4 {
     font-family: 'Georgia';
     margin: 1rem 0;
     text-align: right;
+    font-size: 1em;
+}
+
+h6 {
+    color:rgb(155, 117, 117);
+    font-family: 'Georgia';
+    margin: 1rem 0;
+    text-align: center;
+    font-size: 0.8em;
+ }
+
+h3 {
+    text-align: center;
     font-size: 1em;
 }
 
@@ -180,4 +198,24 @@ p1 {
     position: relative;
     left: 35%;
 
+  }
+
+.split{
+    width: 30%;
+    position: relative;
+    left: 35%;
+  }
+
+.split_search{
+    width: 30%;
+    height: 36px;
+    border: 1px solid rgb(111, 143, 175);
+    background: rgb(111, 143, 175);
+    text-align: center;
+    color: #fff;
+    border-radius: 5px 5px 5px 5px;
+    cursor: pointer;
+    font-size: 15px;
+    position: relative;
+    left: 35.5%;
   }

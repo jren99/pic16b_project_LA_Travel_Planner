@@ -7,15 +7,14 @@
 {% block content %}
   
   <form method="post">
-    <label for="name">What kind of the hotels you want to go? (Please capitalize the first letter of the keyword.) </label>
-    <br>
+    <h3 for="name">What kind of the hotels you want to go? (Please capitalize the first letter of the keyword.) </h3>
     <div class="wrap">
       <div class="search">
         <input name="name" placeholder = "for example: Hilton" id="site">
         <input type="submit" value="search" class="searchButton">
         </div></div>
   </form>
-  <p>Here is a list of the <b>recommended hotels</b> on TripAdvisor.</p>
+  <h3>Here is a list of the <b>recommended hotels</b> on TripAdvisor.</h3>
   {% if name %}
   <p>After filtering based on your keyword...</p>
   <ul>

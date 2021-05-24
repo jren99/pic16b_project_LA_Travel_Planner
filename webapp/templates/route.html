@@ -6,23 +6,23 @@
 
 {% block content %}
   <form method="post">
-      <label for="site">What are the tourist sites you want to go? (Please capitalize the first letter of each word and separated each tourist site by a period.) </label>
-      <br>
+      <h3 for="site">What are the tourist sites you want to go? (Please capitalize the first letter of each word and separated each tourist site by a period.) </h3>
       <input name="site" class="split">
       <br>
-      <label for="day">How many days do you plan to stay? (Please input a positive interger smaller or equal than 10.) </label>
       <br>
+      <h3 for="day">How many days do you plan to stay? (Please input a positive interger smaller or equal than 10.) </h3>
       <input name="day" class="split">
       <br>
-      <label for="hotel">Which hotel do you plan to stay? (Please capitalize the first letter of each word and ended by a period.)</label>
       <br>
+      <h3 for="hotel">Which hotel do you plan to stay? (Please capitalize the first letter of each word and ended by a period.)</h3>
       <input name="hotel" class="split">
       <br>
-      <label for="transportation">What mode of transportation would you like to use? (Please specify car, bike, or foot.)</label>
       <br>
+      <h3 for="transportation">What mode of transportation would you like to use? (Please specify car, bike, or foot.)</h3>
       <input name="transportation" class="split">
       <br>
-      <input type="submit" value="Search for an optimized route">
+      <br>
+      <input type="submit" class="split_search" value="Search for an optimized route">
   </form>
   {% if site %}
   <p1>Step One:</p1>
@@ -211,7 +211,8 @@
     <li><a class="newkeyword" href="http://127.0.0.1:5000/route/">Click here.</a></li>
   </ul>
   {% else %}
-  <p1>Don't know which tourist site you want to go to? That's okay! Please take a look at our main page! Hope there are at least one tourist sites that you are interested in~</p1>
+  <h6>Don't know which tourist site you want to go to? That's okay! Please take a look at our main page!</h6>
+  <h6>We hope there are at least one tourist sites that you are interested in~</h6>
   {% endif %}
 
 {% endblock %}
