@@ -92,8 +92,12 @@ To get a local copy up and running follow these simple steps.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-After the users open the webapp locally on their computers, the users can see **six clickable buttons** on the top of our webapp.
-* **Home**: This page mainly consists of an introduction, such as the purpose and the basic structure, of our webapp.
+After the users open the webapp locally on their computers, the users can see **six clickable buttons** on the top of the webapp:
+* **Home**: This page mainly consists of an introduction, such as the purpose and the basic structure, of the webapp.
+* **Tourist Attraction Recommendations**: This is the start of the users' journey in LA. Users can see a data list of all the recommended tourist attractions that we got the data through webscraping on TripAdvisor. After the users input a keyword in the search box and click **Search**, the users may see another **two clickable buttons**. The users may click **Click here to see all the possible tourist sites** to see a filtered data list that all the tourist sites contain that keyword will be shown in the list. If the users want to try again to input another keyword, the users may click **Try a new keyword**.
+* **Hotel Recommendations**: The users are also able to check the hotels in LA. Similarly, the users can see a list of all the recommended hotels in LA, and we also provided the search box for the users to only see the hotels containing the input keyword by the users.
+* **Restaurant Recommendations**: After the users entering this webpage, the users will be able to see a data list containing all the recommended foods in LA. The users can also filter the data list based on their input keyword, such as entering Japanese to search for all the restaurants that provided Japanese foods.
+
 
 
 
