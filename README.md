@@ -38,7 +38,30 @@ Jingxuan Zhang
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="Home.png" alt="home" width=30%/>
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+        <li><a href="#Execution">Execution</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#Ethics">Ethics</a></li>
+    <li><a href="#Limitations">Limitations</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
 When it comes to traveling, sometimes it can be a struggle to plan out where you want to go, especially if you're going somewhere you've never been to before. Our project aims to create a travel planning tool that gives attraction, hotel, and food recommendations to LA tourists, and provides a detailed and personalized travel plan based on users' selections, including attractions to go for each day and a route recommendation.
 
@@ -97,10 +120,11 @@ After the users open the webapp locally on their computers, the users can see **
 * **Tourist Attraction Recommendations**: This is the start of the users' journey in LA. Users can see a data list of all the recommended tourist attractions that we got the data through webscraping on TripAdvisor. After the users input a keyword in the search box and click **Search**, the users may see another **two clickable buttons**. The users may click **Click here to see all the possible tourist sites** to see a filtered data list that all the tourist sites contain that keyword will be shown in the list. If the users want to try again to input another keyword, the users may click **Try a new keyword**.
 * **Hotel Recommendations**: The users are also able to check the hotels in LA. Similarly, the users can see a list of all the recommended hotels in LA, and we also provided the search box for the users to only see the hotels containing the input keyword by the users.
 * **Restaurant Recommendations**: After the users entering this webpage, the users will be able to see a data list containing all the recommended foods in LA. The users can also filter the data list based on their input keyword, such as entering Japanese to search for all the restaurants that provided Japanese foods.
-
-
-
-
+* **Plan Your Trip!**: Based on the recommended tourist attraction list and the recommended hotel list, the users are required to give four inputs, which are several tourist attractions they are interested in, the number of days they plan to stay, one hotel they plan to stay, and the mode of transportation they are going to use. After the users click **Search for an optimized route**, there will be several steps that the users need to follow:
+	* **Step One: Click here to generate route.**: The users need to click this button first. Our webapp will automatically go webscraping the locations of the places the users want to go and generate the route. This might take a few seconds based on the number of places the users want to go.
+	* **Step Two: Click here to see the Day-n route.** (where n depends on the number of days the users' input): After the webpage has finished loading, the users may click this button to see each day's route we generated for them.
+	* **Plan a new trip: Click here.**: This button is for users to enter different inputs and start over the process of generating routes again.
+* **Contact Us**: We are welcomed for any suggestions from our users. The users may tell us their suggestions by submitting a Google Form on this webpage.
 
 <!-- ETHICS -->
 ## Ethics
