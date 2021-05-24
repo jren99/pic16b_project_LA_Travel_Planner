@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block header %}
+  <h4>Designed by PIC16B 'The Traveler'</h4>
+  <image src="{{url_for('static', filename='css/Logo.jpg')}}" class = "logo"></image>
   <h2>{% block title %}<b>Plan your trip to LA with just a few clicks</b>{% endblock %}</h2>
 {% endblock %}
 
