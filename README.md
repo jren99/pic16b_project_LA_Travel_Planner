@@ -45,15 +45,15 @@ When it comes to traveling, sometimes it can be a struggle to plan out where you
 
 ### Built With
 
-* [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+* [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/):
 Beautiful Soup is a commonly used Python Library by programmers for webscraping. We use Beautiful Soup to get the data, which are saved in CSV files, through webscraping.
-* [Geopy](https://geopy.readthedocs.io/en/stable/#nominatim)
+* [Geopy](https://geopy.readthedocs.io/en/stable/#nominatim):
 Geopy is a Python client for geocoding that obtains the longitude/latitude coordinates for an address. We make use of Nominatim from Geopy, which is a geocoder for OpenStreetMap (OSM), an open data map of the world.
-* [OSRM](http://project-osrm.org/docs/v5.24.0/api/#)
+* [OSRM](http://project-osrm.org/docs/v5.24.0/api/#):
 OSRM is a routing engine that uses OpenStreetMap (OSM) data to generate the shortest routes between locations. By sending a request to OSRM, you obtain a Polyline encoding that contains information such as the route, distance, and duration.
-* [Polyline](https://polyline.readthedocs.io/en/v1.1/)
+* [Polyline](https://polyline.readthedocs.io/en/v1.1/):
 We use the Python implementation of Polyline, which is Google's Encoded Polyline Algorithm Format that stores a series of coordinates as an encoded string.
-* [Folium](http://python-visualization.github.io/folium/)
+* [Folium](http://python-visualization.github.io/folium/):
 We use Folium to visualize route data on an interactive leaflet map. Folium supports Polyline, so it is the best module to use with OSRM.
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/):
 We used Flask to develop our webapp for this project. Since it's written in Python, it makes it easier for us to directly use the functions we have created in Jupyter Notebook and call them after typing the created functions in the webapp files.
@@ -92,7 +92,8 @@ To get a local copy up and running follow these simple steps.
 
 <!-- USAGE EXAMPLES -->
 ## Usage
-
+After the users open the webapp locally on their computers, the users can see **six clickable buttons** on the top of our webapp.
+* **Home**: This page mainly consists of an introduction, such as the purpose and the basic structure, of our webapp.
 
 
 
