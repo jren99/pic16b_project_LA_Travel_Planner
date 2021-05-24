@@ -9,8 +9,11 @@
   <form method="post">
     <label for="name">Which style of the restaurants you want to go? (Please capitalize the first letter of the keyword.) </label>
     <br>
-    <input name="name" placeholder="for example: Japanese" id="site">
-    <input type="submit" value = "search">
+    <div class="wrap">
+      <div class="search">    
+        <input name="name" placeholder="for example: Japanese" id="site">
+        <input type="submit" value = "search" class = "searchButton">
+        </div></div>
   </form>
   <p>Here is a list of the <b>recommended restaurants</b> on TripAdvisor.</p>
   {% if name %}

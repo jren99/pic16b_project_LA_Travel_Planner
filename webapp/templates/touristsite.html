@@ -5,13 +5,18 @@
 {% endblock %}
 
 {% block content %}
-  <p>Here is a list of the <b>recommended tourist sites</b> on TripAdvisor.</p>
   <form method="post">
     <label for="name">What kind of the tourist sites you want to go? (Please capitalize the first letter of the keyword.) </label>
     <br>
-    <input name="name" placeholder = "for example: Museum" id="site">
-    <input type="submit" value="search">
+    <div class="wrap">
+      <div class="search">
+        <input name="name" placeholder = "for example: Museum" id="site">
+        <input type="submit" value="search" class = "searchButton">
+      </div>
+    </div>
   </form>
+  
+  <p>Here is a list of the <b>recommended tourist sites</b> on TripAdvisor.</p>
   {% if name %}
   <p>After filtering based on your keyword...</p>
   <ul>
