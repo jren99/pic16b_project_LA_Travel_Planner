@@ -38,7 +38,7 @@ Jingxuan Zhang
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-<img src="Home.png" alt="home" width=30%/>
+<img src="Home.png" alt="home" width=70%/>
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
