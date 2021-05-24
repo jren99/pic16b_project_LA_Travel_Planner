@@ -45,7 +45,8 @@ When it comes to traveling, sometimes it can be a struggle to plan out where you
 
 ### Built With
 
-* []()
+* [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/)
+Beautiful Soup is a commonly used Python Library by programmers for webscraping. We use Beautiful Soup to get the data, which are saved in CSV files, through webscraping.
 * [Geopy](https://geopy.readthedocs.io/en/stable/#nominatim)
 Geopy is a Python client for geocoding that obtains the longitude/latitude coordinates for an address. We make use of Nominatim from Geopy, which is a geocoder for OpenStreetMap (OSM), an open data map of the world.
 * [OSRM](http://project-osrm.org/docs/v5.24.0/api/#)
@@ -55,7 +56,7 @@ We use the Python implementation of Polyline, which is Google's Encoded Polyline
 * [Folium](http://python-visualization.github.io/folium/)
 We use Folium to visualize route data on an interactive leaflet map. Folium supports Polyline, so it is the best module to use with OSRM.
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/):
-We used Flask to develop our webapp for this project. Since it's written in Python, it makes it easier for us to call the scraper and route generator we have created.
+We used Flask to develop our webapp for this project. Since it's written in Python, it makes it easier for us to directly use the functions we have created in Jupyter Notebook and call them after typing the created functions in the webapp files.
 
 
 
@@ -105,7 +106,7 @@ Depending on what recommendations Tripadvisor gives us, maybe the sightseeing lo
 ## Limitations
 
 * Because of the inefficiency of scraper, we were only able to obtain a dataset for LA instead of California or even larger range. Hence, our webapp is limited to users who want to plan a trip to LA. However, we believe a more efficient scraping method can potentially extend the functionality of our app to larger area.
-* As our recommendations for hotels, food, and attractions are based on matching keywords, this could lead to certain inaccuracy. For example, Getty Center is a museum but doesn't contain the word "museum" in its name, so it won't be included as one of the search results. Smarter search method or better dataset will be needed for further improvement. 
+* As our recommendations for hotels, food, and attractions are based on matching keywords, this could lead to certain inaccuracy. For example, Getty Center is a museum but doesn't contain the word "museum" in its name, so it won't be included as one of the search results. Smarter search method or better dataset will be needed for further improvement.
 * This planner can only plan up to 10 days.
 * Generating the most optimal travel plan such that the user can choose some arbitrary number of attractions and days to stay in LA would be a very difficult problem. To determine the distance/duration of each possible route, we would have to send multiple requests to OSRM, which would be time-consuming and inefficient. We could also treat this as a Traveling Salesman type of problem, but it's unrealistic to construct such a route that passes through all the attractions and find nearby hotels for each of them. We think it makes more sense to have one hotel that the user stays in and use it as the starting point for each day's route. It might also be realistic to add an option for two hotels as well, though our implementation currently does not support this.
 
