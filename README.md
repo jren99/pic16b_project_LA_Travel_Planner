@@ -144,4 +144,5 @@ Depending on what recommendations Tripadvisor gives us, maybe the sightseeing lo
 
 * [TripAdvisor](https://www.tripadvisor.com/): Since our project aims to provide a list of hotels, attractions, and restaurants recommendations, we need reliable and latest data sets. Hence, we accessed the information above from TripAdvisor. 
 * [OpenStreetMap](https://www.openstreetmap.org/copyright): OSM provides all of the map data we use to generate the routes and create the route visualizations. We are very thankful that such an amazing service is open-source!
-* []()
+* [Worth Web Scraping - Mike](https://www.youtube.com/watch?v=HMkckLiHOio): We learned how to use BeautifulSoup for webscraping based on this video though we used a different method for webscraping. Thank you so much for making this tutorial video!
+* [teclado](https://www.youtube.com/watch?v=mCy52I4exTU&t=7s): Thank you for the tutorial about how to show a dataframe on the web app!
