@@ -35,9 +35,11 @@
     {% for row in data_update %}
     <tr class="touristsitetable__row">
       {% for cell in row %}
-      <td class="touristsitetable__cell">
-        {{cell}}
-      </td>
+        {% if loop.index == 3 %}
+          <td class="touristsitetable__cell"><a href={{cell}}>{{cell}}</a></td>
+        {% else %}
+          <td class="touristsitetable__cell">{{cell}}</td>
+        {% endif %}
       {% endfor %}
     </tr>
     {% endfor %}
@@ -54,9 +56,11 @@
     {% for row in data %}
     <tr class="touristsitetable__row">
       {% for cell in row %}
-      <td class="touristsitetable__cell">
-        {{cell}}
-      </td>
+        {% if loop.index == 3 %}
+          <td class="touristsitetable__cell"><a href={{cell}}>{{cell}}</a></td>
+        {% else %}
+          <td class="touristsitetable__cell">{{cell}}</td>
+        {% endif %}
       {% endfor %}
     </tr>
     {% endfor %}

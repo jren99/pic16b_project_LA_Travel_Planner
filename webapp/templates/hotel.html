@@ -34,9 +34,11 @@
     {% for row in data_update %}
     <tr class="hoteltable__row">
       {% for cell in row %}
-      <td class="hoteltable__cell">
-        {{cell}}
-      </td>
+        {% if loop.index == 4 %}
+          <td class="hoteltable__cell"><a href={{cell}}>{{cell}}</a></td>
+        {% else %}
+          <td class="hoteltable__cell">{{cell}}</td>
+        {% endif %}
       {% endfor %}
     </tr>
     {% endfor %}
@@ -53,9 +55,11 @@
     {% for row in data %}
     <tr class="hoteltable__row">
       {% for cell in row %}
-      <td class="hoteltable__cell">
-        {{cell}}
-      </td>
+        {% if loop.index == 4 %}
+          <td class="hoteltable__cell"><a href={{cell}}>{{cell}}</a></td>
+        {% else %}
+          <td class="hoteltable__cell">{{cell}}</td>
+        {% endif %}
       {% endfor %}
     </tr>
     {% endfor %}

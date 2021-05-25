@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_93fb427aa22d4270878eafa28004c783 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_93fb427aa22d4270878eafa28004c783" ></div>
+        
+</body>
+<script>    
+    
+            var map_93fb427aa22d4270878eafa28004c783 = L.map(
+                "map_93fb427aa22d4270878eafa28004c783",
+                {
+                    center: [33.9803445, -118.287146],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    tooltip: "Hover",
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_e415ad70d80e43fd93b97ededa3ad9b7 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_93fb427aa22d4270878eafa28004c783);
+        
+    
+            var poly_line_896be299e14b49f49067f22ff9317c3b = L.polyline(
+                [[34.07915, -118.29171], [34.04002, -118.29159], [34.04002, -118.28457], [34.03581, -118.27471], [34.02749, -118.27469], [34.01465, -118.28124], [33.93627, -118.28028], [33.92264, -118.2817], [33.91332, -118.28679], [33.89825, -118.28683], [33.89265, -118.28609], [33.89272, -118.28303], [33.88154, -118.28258]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 8}
+            ).addTo(map_93fb427aa22d4270878eafa28004c783);
+        
+    
+            var marker_3a099b93c36b4aa6a1f46497603eacc9 = L.marker(
+                [34.079147, -118.291714],
+                {}
+            ).addTo(map_93fb427aa22d4270878eafa28004c783);
+        
+    
+            var icon_447b8036a9d0405eaddaf4588ca287b2 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_3a099b93c36b4aa6a1f46497603eacc9.setIcon(icon_447b8036a9d0405eaddaf4588ca287b2);
+        
+    
+        var popup_dda570d6d1fa4f6dab894c4e5650420d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7a901b75d02c4f47954bdfadad5522b1 = $(`<div id="html_7a901b75d02c4f47954bdfadad5522b1" style="width: 100.0%; height: 100.0%;">North Vermont Avenue, Bicycle District, East Hollywood, Los Angeles, California, 90029-3507, United States</div>`)[0];
+            popup_dda570d6d1fa4f6dab894c4e5650420d.setContent(html_7a901b75d02c4f47954bdfadad5522b1);
+        
+
+        marker_3a099b93c36b4aa6a1f46497603eacc9.bindPopup(popup_dda570d6d1fa4f6dab894c4e5650420d)
+        ;
+
+        
+    
+    
+            var marker_b124175d8d694ba59019679d2e8ab37d = L.marker(
+                [33.881542, -118.282578],
+                {}
+            ).addTo(map_93fb427aa22d4270878eafa28004c783);
+        
+    
+            var icon_ea9b61d16cd0468f8c32565167d02605 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "stop", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_b124175d8d694ba59019679d2e8ab37d.setIcon(icon_ea9b61d16cd0468f8c32565167d02605);
+        
+    
+        var popup_147c6a0185c34be589367a7764f9a01f = L.popup({"maxWidth": "100%"});
+
+        
+            var html_e0532acbbdfe42e1a633412edb373ae0 = $(`<div id="html_e0532acbbdfe42e1a633412edb373ae0" style="width: 100.0%; height: 100.0%;">South Figueroa Street, Harbor Gateway, Los Angeles, Los Angeles County, California, 90248, United States</div>`)[0];
+            popup_147c6a0185c34be589367a7764f9a01f.setContent(html_e0532acbbdfe42e1a633412edb373ae0);
+        
+
+        marker_b124175d8d694ba59019679d2e8ab37d.bindPopup(popup_147c6a0185c34be589367a7764f9a01f)
+        ;
+
+        
+    
+</script>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_d2d2954ee04e41f9ab5960b4ed43d6bb {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_d2d2954ee04e41f9ab5960b4ed43d6bb" ></div>
+        
+</body>
+<script>    
+    
+            var map_d2d2954ee04e41f9ab5960b4ed43d6bb = L.map(
+                "map_d2d2954ee04e41f9ab5960b4ed43d6bb",
+                {
+                    center: [34.1119985, -118.29263900000001],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    tooltip: "Hover",
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_b7ace8cef7c646fe93e0ecbe387f5acc = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_d2d2954ee04e41f9ab5960b4ed43d6bb);
+        
+    
+            var poly_line_9789a927114a4ad5be3ce35e2c6806a8 = L.polyline(
+                [[34.07915, -118.29171], [34.11109, -118.29182], [34.11351, -118.27781], [34.11598, -118.27265], [34.11702, -118.27169], [34.11888, -118.27326], [34.12167, -118.27412], [34.12985, -118.27485], [34.13149, -118.27709], [34.13251, -118.2807], [34.1354, -118.28206], [34.136, -118.28727], [34.14086, -118.28817], [34.14199, -118.29024], [34.14352, -118.28962], [34.14485, -118.29356]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 8}
+            ).addTo(map_d2d2954ee04e41f9ab5960b4ed43d6bb);
+        
+    
+            var marker_55e36864a99147db8c9a2d05612508e7 = L.marker(
+                [34.079147, -118.291714],
+                {}
+            ).addTo(map_d2d2954ee04e41f9ab5960b4ed43d6bb);
+        
+    
+            var icon_b16827e03f8041fa9c7269e152828535 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_55e36864a99147db8c9a2d05612508e7.setIcon(icon_b16827e03f8041fa9c7269e152828535);
+        
+    
+        var popup_185d928389d6479f8395844504f45266 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_c96816a77ec749249fa30a9903fa0ee9 = $(`<div id="html_c96816a77ec749249fa30a9903fa0ee9" style="width: 100.0%; height: 100.0%;">North Vermont Avenue, Bicycle District, East Hollywood, Los Angeles, California, 90029-3507, United States</div>`)[0];
+            popup_185d928389d6479f8395844504f45266.setContent(html_c96816a77ec749249fa30a9903fa0ee9);
+        
+
+        marker_55e36864a99147db8c9a2d05612508e7.bindPopup(popup_185d928389d6479f8395844504f45266)
+        ;
+
+        
+    
+    
+            var marker_64c527a4c0e84162aaf0b9086a6cfeb1 = L.marker(
+                [34.14485, -118.293564],
+                {}
+            ).addTo(map_d2d2954ee04e41f9ab5960b4ed43d6bb);
+        
+    
+            var icon_08d1fb71d3914063a5192a0b990c8c96 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "stop", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_64c527a4c0e84162aaf0b9086a6cfeb1.setIcon(icon_08d1fb71d3914063a5192a0b990c8c96);
+        
+    
+        var popup_3f4774dabf2d4f339179b39dbcaaf8c2 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_6cc28c11515f477aa2b637d0d282cae9 = $(`<div id="html_6cc28c11515f477aa2b637d0d282cae9" style="width: 100.0%; height: 100.0%;">Griffith Park Boys Camp, 4730, Crystal Springs Drive, Griffith Park, Los Angeles, California, 90027, United States</div>`)[0];
+            popup_3f4774dabf2d4f339179b39dbcaaf8c2.setContent(html_6cc28c11515f477aa2b637d0d282cae9);
+        
+
+        marker_64c527a4c0e84162aaf0b9086a6cfeb1.bindPopup(popup_3f4774dabf2d4f339179b39dbcaaf8c2)
+        ;
+
+        
+    
+</script>

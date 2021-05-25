@@ -34,9 +34,11 @@
     {% for row in data_update %}
     <tr class="restauranttable__row">
       {% for cell in row %}
-      <td class="restauranttable__cell">
-        {{cell}}
-      </td>
+        {% if loop.index == 5 %}
+          <td class="restauranttable__cell"><a href={{cell}}>{{cell}}</a></td>
+        {% else %}
+          <td class="restauranttable__cell">{{cell}}</td>
+        {% endif %}
       {% endfor %}
     </tr>
     {% endfor %}
@@ -53,12 +55,15 @@
     {% for row in data %}
     <tr class="restauranttable__row">
       {% for cell in row %}
-      <td class="restauranttable__cell">
-        {{cell}}
-      </td>
+        {% if loop.index == 5 %}
+          <td class="restauranttable__cell"><a href={{cell}}>{{cell}}</a></td>
+        {% else %}
+          <td class="restauranttable__cell">{{cell}}</td>
+        {% endif %}
       {% endfor %}
     </tr>
     {% endfor %}
   </table>
 {% endif %}
 {% endblock %}
+
