@@ -1,11 +1,11 @@
-from flask import Flask, render_template, url_for, request, redirect
-import pandas as pd
-import csv
-import requests
-from bs4 import BeautifulSoup as soup
-from geopy.geocoders import Nominatim
-import folium
-import polyline
+from flask import Flask, render_template, url_for, request, redirect # use for making the webapp
+import pandas as pd # use to modify dataframe
+import csv # read csv files
+import requests # send http requests
+from bs4 import BeautifulSoup as soup # use for webscraping locations
+from geopy.geocoders import Nominatim # Geopy is a Python client for geocoding. We use the Nominatim geocoder for OpenStreetMap (OSM) data.
+import folium # visualizes data on map; wondering if I can replace this with plotly express
+import polyline # Python implementation of Google’s Encoded Polyline Algorithm Format
 import random
 
 
@@ -13,8 +13,12 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST', 'GET'])
 def main():
+    """
+    This controls the 'Home' page.
+    """
     return render_template('main.html')
 
+# import the csv file after webscraping the recommended tourist sites on TripAdvisor
 dataframe_ts = pd.read_csv('2520_touristsite.csv')
 dataframe_touristsite = dataframe_ts[["Rank", "Tourist Site Name", "Site Link"]]
 touristsite_header = tuple(dataframe_touristsite)
@@ -22,6 +26,10 @@ touristsite_body = tuple(dataframe_touristsite.itertuples(index=False, name=None
 
 @app.route('/touristsite/', methods=['POST', 'GET'])
 def touristsite():
+    """
+    This function controls the 'Tourist Attraction Recommendations' page.
+    Get the input of the tourist site keyword by the user.
+    """
     if request.method == 'GET':
             return render_template('touristsite.html',headings=touristsite_header, data=touristsite_body)
     else:
@@ -32,11 +40,16 @@ def touristsite():
 
 @app.route('/touristsite/<name>/', methods=['POST', 'GET'])
 def touristsite_name(name):
+    """
+    This function receives the input of the keyword from the above 'touristsite' function
+    and returns a filtered dataframe with all the tourist sites containing that input keyword.
+    """
     touristsite_header = tuple(dataframe_touristsite)
     dataframe_touristsite_update = dataframe_touristsite[dataframe_touristsite["Tourist Site Name"].str.contains(str(name).lower(), na = False, case = False)]
     touristsite_body_update = tuple(dataframe_touristsite_update.itertuples(index=False, name=None))
     return render_template('touristsite.html', name=name, headings_update=touristsite_header, data_update=touristsite_body_update)
 
+# import the csv file after webscraping the recommended hotels on TripAdvisor
 dataframe_ht = pd.read_csv('420_hotel.csv')
 dataframe_hotel = dataframe_ht[["Rank", "Hotel Name", "Rate", "Site Link"]]
 hotel_header = tuple(dataframe_hotel)
@@ -44,6 +57,10 @@ hotel_body = tuple(dataframe_hotel.itertuples(index=False, name=None))
 
 @app.route('/hotel/', methods=['POST', 'GET'])
 def hotel():
+    """
+    This function controls the 'Hotel Recommendations' page.
+    Get the input of the hotel keyword by the user.
+    """
     if request.method == 'GET':
             return render_template('hotel.html',headings=hotel_header, data=hotel_body)
     else:
@@ -54,11 +71,16 @@ def hotel():
 
 @app.route('/hotel/<name>/', methods=['POST', 'GET'])
 def hotel_name(name):
+    """
+    This function receives the input of the keyword from the above 'hotel' function
+    and returns a filtered dataframe with all the hotels containing that input keyword.
+    """
     hotel_header = tuple(dataframe_hotel)
     dataframe_hotel_update = dataframe_hotel[dataframe_hotel["Hotel Name"].str.contains(str(name).lower(), na = False, case = False)]
     hotel_body_update = tuple(dataframe_hotel_update.itertuples(index=False, name=None))
     return render_template('hotel.html', name=name, headings_update=hotel_header, data_update=hotel_body_update)
 
+# import the csv file after webscraping the recommended restaurants on TripAdvisor
 dataframe_rt = pd.read_csv('13460_restaurant.csv')
 dataframe_restaurant = dataframe_rt[["Rank", "Restaurant Name", "Style", "Rate", "Site Link"]]
 restaurant_header = tuple(dataframe_restaurant)
@@ -66,6 +88,10 @@ restaurant_body = tuple(dataframe_restaurant.itertuples(index=False, name=None))
 
 @app.route('/restaurant/', methods=['POST', 'GET'])
 def restaurant():
+    """
+    This function controls the 'Restaurants Recommendations' page.
+    Get the input of the restaurant keyword by the user.
+    """
     if request.method == 'GET':
             return render_template('restaurant.html',headings=restaurant_header, data=restaurant_body)
     else:
@@ -76,12 +102,20 @@ def restaurant():
 
 @app.route('/restaurant/<name>/', methods=['POST', 'GET'])
 def restaurant_name(name):
+    """
+    This function receives the input of the keyword from the above 'restaurant_name' function
+    and returns a filtered dataframe with all the restaurants containing that input keyword.
+    """
     restaurant_header = tuple(dataframe_restaurant)
     dataframe_restaurant_update = dataframe_restaurant[dataframe_restaurant["Style"].str.contains(str(name).lower(), na = False, case = False)]
     restaurant_body_update = tuple(dataframe_restaurant_update.itertuples(index=False, name=None))
     return render_template('restaurant.html', name=name, headings_update=restaurant_header, data_update=restaurant_body_update)
 
 def visit_tourist(df, want_to_go_name):
+    """
+    Get the site links based on the input of the tourist sites the user wants to go.
+    """
+
     want_to_go_name = want_to_go_name.lower()
     each_name = want_to_go_name.split(", ")
     
@@ -94,12 +128,18 @@ def visit_tourist(df, want_to_go_name):
     return visit_html
 
 def visit_hotel(df, want_to_go_name):
+    """
+    Get the site links based on the input of the hotel the user wants to go.
+    """
     
     visit_html = df[["Hotel Name", "Site Link"]][df["Hotel Name"].str.lower() == want_to_go_name.lower()]
     
     return visit_html
     
 def find_location(visit_html):
+    """
+    Get the information of the locations by webscraping through the site links.
+    """
 
     location = []
 
@@ -128,6 +168,10 @@ def find_location(visit_html):
     return location
 
 def location_cleaner(locations):
+    """
+    Cleans the addresses by removing the code at the end 
+    and then removing the last word of the address with each iteration of the loop.
+    """
     locations_copy = []
     for location in locations:
         location = location.rsplit(' ', 1)[0]
@@ -141,6 +185,10 @@ def location_cleaner(locations):
     return locations_copy
 
 def locations_per_day(df, travel_length):
+    """
+    Determines the number of attractions that the user must visit per day 
+    and randomly chooses attractions for each day.
+    """
     travel_length = int(travel_length)
     loc_per_day = []
     number_of_locs = df.shape[0]
@@ -148,12 +196,13 @@ def locations_per_day(df, travel_length):
         loc_per_day.append(number_of_locs // travel_length)
         number_of_locs -= (number_of_locs // travel_length)
         travel_length -= 1
-    random.shuffle(loc_per_day)
+    random.shuffle(loc_per_day) # obtain a random ordering of locations per day
     
     coordinates = [0] * len(loc_per_day)
     used_coordinates = []
     addresses = [0] * len(loc_per_day)
-    
+
+    # creates nested lists of tuples within a list that indicate the coordinates of the places you visit per day
     for i in range(len(coordinates)):
         coordinates[i] = []
         addresses[i] = []
@@ -183,16 +232,17 @@ def get_route(coordinates, hotel, transportation):
         print("Failed")
         return {}
   
-    res = r.json()   
-    routes = polyline.decode(res['routes'][0]['geometry'])
-    start_point = [res['waypoints'][0]['location'][1], res['waypoints'][0]['location'][0]]
-    end_point = [res['waypoints'][len(res['waypoints']) - 1]['location'][1], res['waypoints'][len(res['waypoints']) - 1]['location'][0]]
+    res = r.json()
+    routes = polyline.decode(res['routes'][0]['geometry']) # the geometry specifies the polyline encoding
+    start_point = [res['waypoints'][0]['location'][1], res['waypoints'][0]['location'][0]] # 0th waypoint corresponds to the starting location
+    end_point = [res['waypoints'][len(res['waypoints']) - 1]['location'][1], res['waypoints'][len(res['waypoints']) - 1]['location'][0]] # len - 1 waypoint corresponds to the ending location
     waypoints = []
     for i in range(1, len(res['waypoints']) - 1):
         waypoints.append((res['waypoints'][i]['location'][1], res['waypoints'][i]['location'][0]))
     distance = res['routes'][0]['distance']
     duration = res['routes'][0]['duration']
 
+    # returning a dictionary with the routes, starting point, ending point, and distance
     out = {'route':routes,
            'start_point':start_point,
            'waypoints': waypoints,
@@ -204,6 +254,11 @@ def get_route(coordinates, hotel, transportation):
 
 @app.route('/route/', methods=['POST', 'GET'])
 def route():
+    """
+    This function controls the 'Plan Your Trip!' page.
+    Get the input of the tourist sites, number of days planning to stay in LA, 
+    hotel, and the type of transportation by the user.
+    """
     if request.method == 'GET':
         return render_template('route.html')
     else:
@@ -214,6 +269,7 @@ def route():
 
 geolocator = Nominatim(user_agent = "pic16b")
 
+# list of colors for plotting different routes
 list_colors = [
     "red",
     "orange",
@@ -224,7 +280,9 @@ list_colors = [
 ]
 
 def get_map(route, route_color, addresses, hotel_df):
-    
+    """
+    Draw the route on an interactive map.
+    """
     m = folium.Map(location=[(route['start_point'][0] + route['end_point'][0])/2, 
                              (route['start_point'][1] + route['end_point'][1])/2], 
                    zoom_start=15, tooltip = "Hover")
@@ -259,24 +317,30 @@ def get_map(route, route_color, addresses, hotel_df):
 
 @app.route('/route/<site>/<day>/<hotel>/<transportation>/', methods=['POST', 'GET'])
 def route_plot(site, day, hotel, transportation):
+    """
+    This function receives the inputs from the above 'route' function
+    and returns several links to generate the route for each day.
+    """
     visit_html_tourist = visit_tourist(dataframe_touristsite, site)
     location_touristsite = find_location(visit_html_tourist)
     visit_html_hotel = visit_hotel(dataframe_hotel, hotel)
     location_hotel = find_location(visit_html_hotel)
+    # creating the Pandas dataframe
     df = pd.DataFrame(columns = ["Address", "Longitude", "Latitude"])
     locations = location_cleaner(location_touristsite)
     for location in locations:
-        loc = geolocator.geocode(location)
-        df.loc[len(df.index)] = [loc, loc.longitude, loc.latitude]
+        loc = geolocator.geocode(location) # geocoding the location
+        df.loc[len(df.index)] = [loc, loc.longitude, loc.latitude] # adding the location, longitude, and latitude to the dataframe
     
-    hotel_df = pd.DataFrame(columns = ["Address", "Longitude", "Latitude"])
+    hotel_df = pd.DataFrame(columns = ["Address", "Longitude", "Latitude"]) # creating the Pandas dataframe
     hotel_locations = location_cleaner(location_hotel)
     for location in hotel_locations:
-        loc = geolocator.geocode(location)
-        hotel_df.loc[len(df.index)] = [loc, loc.longitude, loc.latitude]
+        loc = geolocator.geocode(location) # geocoding the location
+        hotel_df.loc[len(df.index)] = [loc, loc.longitude, loc.latitude] # adding the location, longitude, and latitude to the dataframe
     
     coordinates, addresses = locations_per_day(df, day)
 
+    # obtain the list of routes for the entire travel
     route_list = []
     for i in range(len(coordinates)):
         test_route = get_route(coordinates[i], hotel_df, transportation)
@@ -293,46 +357,79 @@ def route_plot(site, day, hotel, transportation):
 
 @app.route('/map1/')
 def route_map1():
+    """
+    This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
+    """
     return render_template('map0.html')
 
 @app.route('/map2/')
 def route_map2():
+    """
+    This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
+    """
     return render_template('map1.html')
 
 @app.route('/map3/')
 def route_map3():
+    """
+    This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
+    """
     return render_template('map2.html')
 
 @app.route('/map4/')
 def route_map4():
+    """
+    This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
+    """
     return render_template('map3.html')
 
 @app.route('/map5/')
 def route_map5():
+    """
+    This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
+    """
     return render_template('map4.html')
 
 @app.route('/map6/')
 def route_map6():
+    """
+    This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
+    """
     return render_template('map5.html')
 
 @app.route('/map7/')
 def route_map7():
+    """
+    This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
+    """
     return render_template('map6.html')
 
 @app.route('/map8/')
 def route_map8():
+    """
+    This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
+    """
     return render_template('map7.html')
 
 @app.route('/map9/')
 def route_map9():
+    """
+    This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
+    """
     return render_template('map8.html')
 
 @app.route('/map10/')
 def route_map10():
+    """
+    This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
+    """
     return render_template('map9.html')
 
 @app.route('/contact/')
 def contact():
+    """
+    This function controls the 'Contact Us' page.
+    """
     return render_template('contact.html')
 
 if __name__ == "__main__":
