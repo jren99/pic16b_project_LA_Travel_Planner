@@ -15,6 +15,71 @@ app = Flask(__name__)
 def main():
     return render_template('main.html')
 
+dataframe_ts = pd.read_csv('2520_touristsite.csv')
+dataframe_touristsite = dataframe_ts[["Rank", "Tourist Site Name", "Site Link"]]
+touristsite_header = tuple(dataframe_touristsite)
+touristsite_body = tuple(dataframe_touristsite.itertuples(index=False, name=None))
+
+@app.route('/touristsite/', methods=['POST', 'GET'])
+def touristsite():
+    if request.method == 'GET':
+            return render_template('touristsite.html',headings=touristsite_header, data=touristsite_body)
+    else:
+        try:
+            return render_template('touristsite.html', name=request.form['name'],headings=touristsite_header, data=touristsite_body)
+        except:
+            return render_template('touristsite.html',headings=touristsite_header, data=touristsite_body)
+
+@app.route('/touristsite/<name>/', methods=['POST', 'GET'])
+def touristsite_name(name):
+    touristsite_header = tuple(dataframe_touristsite)
+    dataframe_touristsite_update = dataframe_touristsite[dataframe_touristsite["Tourist Site Name"].str.contains(str(name).lower(), na = False, case = False)]
+    touristsite_body_update = tuple(dataframe_touristsite_update.itertuples(index=False, name=None))
+    return render_template('touristsite.html', name=name, headings_update=touristsite_header, data_update=touristsite_body_update)
+
+dataframe_ht = pd.read_csv('420_hotel.csv')
+dataframe_hotel = dataframe_ht[["Rank", "Hotel Name", "Rate", "Site Link"]]
+hotel_header = tuple(dataframe_hotel)
+hotel_body = tuple(dataframe_hotel.itertuples(index=False, name=None))
+
+@app.route('/hotel/', methods=['POST', 'GET'])
+def hotel():
+    if request.method == 'GET':
+            return render_template('hotel.html',headings=hotel_header, data=hotel_body)
+    else:
+        try:
+            return render_template('hotel.html', name=request.form['name'],headings=hotel_header, data=hotel_body)
+        except:
+            return render_template('hotel.html',headings=hotel_header, data=hotel_body)
+
+@app.route('/hotel/<name>/', methods=['POST', 'GET'])
+def hotel_name(name):
+    hotel_header = tuple(dataframe_hotel)
+    dataframe_hotel_update = dataframe_hotel[dataframe_hotel["Hotel Name"].str.contains(str(name).lower(), na = False, case = False)]
+    hotel_body_update = tuple(dataframe_hotel_update.itertuples(index=False, name=None))
+    return render_template('hotel.html', name=name, headings_update=hotel_header, data_update=hotel_body_update)
+
+dataframe_rt = pd.read_csv('13460_restaurant.csv')
+dataframe_restaurant = dataframe_rt[["Rank", "Restaurant Name", "Style", "Rate", "Site Link"]]
+restaurant_header = tuple(dataframe_restaurant)
+restaurant_body = tuple(dataframe_restaurant.itertuples(index=False, name=None))
+
+@app.route('/restaurant/', methods=['POST', 'GET'])
+def restaurant():
+    if request.method == 'GET':
+            return render_template('restaurant.html',headings=restaurant_header, data=restaurant_body)
+    else:
+        try:
+            return render_template('restaurant.html', name=request.form['name'],headings=restaurant_header, data=restaurant_body)
+        except:
+            return render_template('restaurant.html',headings=restaurant_header, data=restaurant_body)
+
+@app.route('/restaurant/<name>/', methods=['POST', 'GET'])
+def restaurant_name(name):
+    restaurant_header = tuple(dataframe_restaurant)
+    dataframe_restaurant_update = dataframe_restaurant[dataframe_restaurant["Style"].str.contains(str(name).lower(), na = False, case = False)]
+    restaurant_body_update = tuple(dataframe_restaurant_update.itertuples(index=False, name=None))
+    return render_template('restaurant.html', name=name, headings_update=restaurant_header, data_update=restaurant_body_update)
 
 def visit_tourist(df, want_to_go_name):
     want_to_go_name = want_to_go_name.lower()
@@ -30,7 +95,7 @@ def visit_tourist(df, want_to_go_name):
 
 def visit_hotel(df, want_to_go_name):
     
-    visit_html = df[["Hotel Name", "Site Link"]][df["Hotel Name"] == want_to_go_name]
+    visit_html = df[["Hotel Name", "Site Link"]][df["Hotel Name"].str.lower() == want_to_go_name.lower()]
     
     return visit_html
     
@@ -269,73 +334,6 @@ def route_map10():
 @app.route('/contact/')
 def contact():
     return render_template('contact.html')
-
-dataframe_ts = pd.read_csv('2520_touristsite.csv')
-dataframe_touristsite = dataframe_ts[["Rank", "Tourist Site Name", "Site Link"]]
-touristsite_header = tuple(dataframe_touristsite)
-touristsite_body = tuple(dataframe_touristsite.itertuples(index=False, name=None))
-
-@app.route('/touristsite/', methods=['POST', 'GET'])
-def touristsite():
-    if request.method == 'GET':
-            return render_template('touristsite.html',headings=touristsite_header, data=touristsite_body)
-    else:
-        try:
-            return render_template('touristsite.html', name=request.form['name'],headings=touristsite_header, data=touristsite_body)
-        except:
-            return render_template('touristsite.html',headings=touristsite_header, data=touristsite_body)
-
-@app.route('/touristsite/<name>/', methods=['POST', 'GET'])
-def touristsite_name(name):
-    touristsite_header = tuple(dataframe_touristsite)
-    dataframe_touristsite_update = dataframe_touristsite[dataframe_touristsite["Tourist Site Name"].str.contains(str(name))]
-    touristsite_body_update = tuple(dataframe_touristsite_update.itertuples(index=False, name=None))
-    return render_template('touristsite.html', name=name, headings_update=touristsite_header, data_update=touristsite_body_update)
-
-dataframe_ht = pd.read_csv('420_hotel.csv')
-dataframe_hotel = dataframe_ht[["Rank", "Hotel Name", "Rate", "Site Link"]]
-hotel_header = tuple(dataframe_hotel)
-hotel_body = tuple(dataframe_hotel.itertuples(index=False, name=None))
-
-@app.route('/hotel/', methods=['POST', 'GET'])
-def hotel():
-    if request.method == 'GET':
-            return render_template('hotel.html',headings=hotel_header, data=hotel_body)
-    else:
-        try:
-            return render_template('hotel.html', name=request.form['name'],headings=hotel_header, data=hotel_body)
-        except:
-            return render_template('hotel.html',headings=hotel_header, data=hotel_body)
-
-@app.route('/hotel/<name>/', methods=['POST', 'GET'])
-def hotel_name(name):
-    hotel_header = tuple(dataframe_hotel)
-    dataframe_hotel_update = dataframe_hotel[dataframe_hotel["Hotel Name"].str.contains(str(name))]
-    hotel_body_update = tuple(dataframe_hotel_update.itertuples(index=False, name=None))
-    return render_template('hotel.html', name=name, headings_update=hotel_header, data_update=hotel_body_update)
-
-dataframe_rt = pd.read_csv('13460_restaurant.csv')
-dataframe_restaurant = dataframe_rt[["Rank", "Restaurant Name", "Style", "Rate", "Site Link"]]
-restaurant_header = tuple(dataframe_restaurant)
-restaurant_body = tuple(dataframe_restaurant.itertuples(index=False, name=None))
-
-@app.route('/restaurant/', methods=['POST', 'GET'])
-def restaurant():
-    if request.method == 'GET':
-            return render_template('restaurant.html',headings=restaurant_header, data=restaurant_body)
-    else:
-        try:
-            return render_template('restaurant.html', name=request.form['name'],headings=restaurant_header, data=restaurant_body)
-        except:
-            return render_template('restaurant.html',headings=restaurant_header, data=restaurant_body)
-
-@app.route('/restaurant/<name>/', methods=['POST', 'GET'])
-def restaurant_name(name):
-    dataframe_restaurant_drop = dataframe_restaurant.dropna()
-    restaurant_header = tuple(dataframe_restaurant_drop)
-    dataframe_restaurant_update = dataframe_restaurant_drop[dataframe_restaurant_drop["Style"].str.contains(str(name))]
-    restaurant_body_update = tuple(dataframe_restaurant_update.itertuples(index=False, name=None))
-    return render_template('restaurant.html', name=name, headings_update=restaurant_header, data_update=restaurant_body_update)
 
 if __name__ == "__main__":
     app.run(debug=True)
