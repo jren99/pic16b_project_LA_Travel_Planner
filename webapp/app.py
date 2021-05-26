@@ -20,8 +20,11 @@ def main():
 
 # import the csv file after webscraping the recommended tourist sites on TripAdvisor
 dataframe_ts = pd.read_csv('2520_touristsite.csv')
+# get the data from columns of "Rank", "Tourist Site Name", "Site Link"
 dataframe_touristsite = dataframe_ts[["Rank", "Tourist Site Name", "Site Link"]]
+# get the headers into a tuple
 touristsite_header = tuple(dataframe_touristsite)
+# get the data of the dataframe into a tuple
 touristsite_body = tuple(dataframe_touristsite.itertuples(index=False, name=None))
 
 @app.route('/touristsite/', methods=['POST', 'GET'])
@@ -44,15 +47,22 @@ def touristsite_name(name):
     This function receives the input of the keyword from the above 'touristsite' function
     and returns a filtered dataframe with all the tourist sites containing that input keyword.
     """
+    # get the header of the dataframe
     touristsite_header = tuple(dataframe_touristsite)
+    # filter the dataframe by not being case-sensitive and not including NaN rows
     dataframe_touristsite_update = dataframe_touristsite[dataframe_touristsite["Tourist Site Name"].str.contains(str(name).lower(), na = False, case = False)]
+    # fill up the rows of the dataframe
     touristsite_body_update = tuple(dataframe_touristsite_update.itertuples(index=False, name=None))
+    
     return render_template('touristsite.html', name=name, headings_update=touristsite_header, data_update=touristsite_body_update)
 
 # import the csv file after webscraping the recommended hotels on TripAdvisor
 dataframe_ht = pd.read_csv('420_hotel.csv')
+# get the data from columns of "Rank", "Hotel Name", "Rate", "Site Link"
 dataframe_hotel = dataframe_ht[["Rank", "Hotel Name", "Rate", "Site Link"]]
+# get the headers into a tuple
 hotel_header = tuple(dataframe_hotel)
+# get the data of the dataframe into a tuple
 hotel_body = tuple(dataframe_hotel.itertuples(index=False, name=None))
 
 @app.route('/hotel/', methods=['POST', 'GET'])
@@ -75,15 +85,22 @@ def hotel_name(name):
     This function receives the input of the keyword from the above 'hotel' function
     and returns a filtered dataframe with all the hotels containing that input keyword.
     """
+    # get the header of the dataframe
     hotel_header = tuple(dataframe_hotel)
+    # filter the dataframe by not being case-sensitive and not including NaN rows
     dataframe_hotel_update = dataframe_hotel[dataframe_hotel["Hotel Name"].str.contains(str(name).lower(), na = False, case = False)]
+    # fill up the rows of the dataframe
     hotel_body_update = tuple(dataframe_hotel_update.itertuples(index=False, name=None))
+    
     return render_template('hotel.html', name=name, headings_update=hotel_header, data_update=hotel_body_update)
 
 # import the csv file after webscraping the recommended restaurants on TripAdvisor
 dataframe_rt = pd.read_csv('13460_restaurant.csv')
+# get the data from columns of "Rank", "Restaurant Name", "Style", "Rate", "Site Link"
 dataframe_restaurant = dataframe_rt[["Rank", "Restaurant Name", "Style", "Rate", "Site Link"]]
+# get the headers into a tuple
 restaurant_header = tuple(dataframe_restaurant)
+# get the data of the dataframe into a tuple
 restaurant_body = tuple(dataframe_restaurant.itertuples(index=False, name=None))
 
 @app.route('/restaurant/', methods=['POST', 'GET'])
@@ -106,17 +123,22 @@ def restaurant_name(name):
     This function receives the input of the keyword from the above 'restaurant_name' function
     and returns a filtered dataframe with all the restaurants containing that input keyword.
     """
+    # get the header of the dataframe
     restaurant_header = tuple(dataframe_restaurant)
+    # filter the dataframe by not being case-sensitive and not including NaN rows
     dataframe_restaurant_update = dataframe_restaurant[dataframe_restaurant["Style"].str.contains(str(name).lower(), na = False, case = False)]
+    # fill up the rows of the dataframe
     restaurant_body_update = tuple(dataframe_restaurant_update.itertuples(index=False, name=None))
+    
     return render_template('restaurant.html', name=name, headings_update=restaurant_header, data_update=restaurant_body_update)
 
 def visit_tourist(df, want_to_go_name):
     """
     Get the site links based on the input of the tourist sites the user wants to go.
     """
-
+    # lowercase the input
     want_to_go_name = want_to_go_name.lower()
+    # split the string to separate each name of the tourist sites
     each_name = want_to_go_name.split(", ")
     
     for name in each_name:
@@ -140,7 +162,6 @@ def find_location(visit_html):
     """
     Get the information of the locations by webscraping through the site links.
     """
-
     location = []
 
     for link in visit_html["Site Link"]:
