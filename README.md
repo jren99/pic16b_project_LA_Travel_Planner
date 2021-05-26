@@ -96,14 +96,9 @@ To get a local copy up and running follow these simple steps.
    git clone https://github.com/jren99/pic16b_project.git
    ```
 2. Install packages
+make sure you are in the folder ``pic16b_project`
    ```sh
-   pip install pandas
-   pip install Flask
-   pip install beautifulsoup4
-   pip install geopy
-   pip install folium
-   pip install polyline
-
+   pip install -r requirements.txt
    ```
 ### Execution
 
