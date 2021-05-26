@@ -1,0 +1,7 @@
+###### Requirements without Version Specifiers ######`
+pandas
+Flask
+beautifulsoup4
+geopy
+folium
+polyline

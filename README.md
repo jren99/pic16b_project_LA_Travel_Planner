@@ -106,8 +106,9 @@ To get a local copy up and running follow these simple steps.
 
    ```
 ### Execution
+
+make sure you current working directory is `pic16b_project/webapp`
 ```sh
-   cd webapp
    python3 app.py
    ```
 
