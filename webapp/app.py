@@ -17,24 +17,20 @@ def main():
 
 
 def visit_tourist(df, want_to_go_name):
-    each_name = want_to_go_name.split(".")
-
-    for name in each_name:
-        if name == each_name[0]:
-            visit_html = df[["Tourist Site Name", "Site Link"]][df["Tourist Site Name"] == name]
-        else:
-            visit_html = visit_html.append(df[["Tourist Site Name", "Site Link"]][df["Tourist Site Name"] == name])
-
-    return visit_html
-
-def visit_hotel(df, want_to_go_name):
-    each_name = want_to_go_name.split(".")
+    want_to_go_name = want_to_go_name.lower()
+    each_name = want_to_go_name.split(", ")
     
     for name in each_name:
         if name == each_name[0]:
-            visit_html = df[["Hotel Name", "Site Link"]][df["Hotel Name"] == name]
+            visit_html = df[["Tourist Site Name", "Site Link"]][df["Tourist Site Name"].str.lower() == name]
         else:
-            visit_html = visit_html.append(df[["Hotel Name", "Site Link"]][df["Hotel Name"] == name])
+            visit_html = visit_html.append(df[["Tourist Site Name", "Site Link"]][df["Tourist Site Name"].str.lower() == name])
+    
+    return visit_html
+
+def visit_hotel(df, want_to_go_name):
+    
+    visit_html = df[["Hotel Name", "Site Link"]][df["Hotel Name"] == want_to_go_name]
     
     return visit_html
     

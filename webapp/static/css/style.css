@@ -31,6 +31,12 @@ h2 {
     font-size: 1.3em;
 }
 
+h3 {
+    text-align: center;
+    font-size: 1em;
+}
+
+
 h4 {
     color: rgb(78, 94, 126);
     font-family: 'Georgia';
@@ -47,10 +53,6 @@ h6 {
     font-size: 0.8em;
  }
 
-h3 {
-    text-align: center;
-    font-size: 1em;
-}
 
 .filter {
     color:mediumslateblue;
