@@ -93,18 +93,18 @@ To get a local copy up and running follow these simple steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/jren99/pic16b_project.git
+   $ git clone https://github.com/jren99/pic16b_project.git
    ```
 2. Install packages
 make sure you are in the folder ``pic16b_project`
    ```sh
-   pip install -r requirements.txt
+   $ pip install -r requirements.txt
    ```
 ### Execution
 
 make sure you current working directory is `pic16b_project/webapp`
 ```sh
-   python3 app.py
+   $ python3 app.py
    ```
 
 
