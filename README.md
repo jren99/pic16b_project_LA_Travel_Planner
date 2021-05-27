@@ -138,7 +138,7 @@ Depending on what recommendations Tripadvisor gives us, maybe the sightseeing lo
 
 
 <!-- GROUP CONTRIBUTION -->
-## Group Contributiton 
+## Group Contribution 
 
 * Ashley Lu
 
