@@ -137,7 +137,7 @@ Depending on what recommendations Tripadvisor gives us, maybe the sightseeing lo
 * Generating the most optimal travel plan such that the user can choose some arbitrary number of attractions and days to stay in LA would be a very difficult problem. To determine the distance/duration of each possible route, we would have to send multiple requests to OSRM, which would be time-consuming and inefficient. We could also treat this as a Traveling Salesman type of problem, but it's unrealistic to construct such a route that passes through all the attractions and find nearby hotels for each of them. We think it makes more sense to have one hotel that the user stays in and use it as the starting point for each day's route. It might also be realistic to add an option for two hotels as well, though our implementation currently does not support this.
 
 
-<!-- GROUP CONTRIUBTION -->
+<!-- GROUP CONTRIBUTION -->
 ## Group Contributiton 
 
 * Ashley Lu
