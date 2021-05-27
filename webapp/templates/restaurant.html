@@ -24,6 +24,7 @@
     <li><a class="newkeyword" href="http://127.0.0.1:5000/restaurant/">Try a new keyword</a></li>
   </ul>
   <table class="table">
+    <!-- the tableheader  -->
     <tr class="restauranttable__header">
       {% for header in headings_update %}
       <th class="restauranttable__cell">
@@ -32,10 +33,12 @@
       {% endfor %}
     </tr>
     {% for row in data_update %}
+    <!-- the table content -->
     <tr class="restauranttable__row">
       {% for cell in row %}
+      <!-- the 5th column is site link so make it hyperlink -->
         {% if loop.index == 5 %}
-          <td class="restauranttable__cell"><a href={{cell}}>{{cell}}</a></td>
+          <td class="restauranttable__cell"><a href={{cell}} target="_blank">{{cell}}</a></td>
         {% else %}
           <td class="restauranttable__cell">{{cell}}</td>
         {% endif %}
@@ -55,8 +58,9 @@
     {% for row in data %}
     <tr class="restauranttable__row">
       {% for cell in row %}
+      <!-- the 5th column is site link so make it hyperlink -->
         {% if loop.index == 5 %}
-          <td class="restauranttable__cell"><a href={{cell}}>{{cell}}</a></td>
+          <td class="restauranttable__cell"><a href={{cell}} target="_blank">{{cell}}</a></td>
         {% else %}
           <td class="restauranttable__cell">{{cell}}</td>
         {% endif %}

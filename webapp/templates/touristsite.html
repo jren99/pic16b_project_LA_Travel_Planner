@@ -35,8 +35,9 @@
     {% for row in data_update %}
     <tr class="touristsitetable__row">
       {% for cell in row %}
+      <!-- the 3rd column is site link so make it hyperlink -->
         {% if loop.index == 3 %}
-          <td class="touristsitetable__cell"><a href={{cell}}>{{cell}}</a></td>
+          <td class="touristsitetable__cell"><a href={{cell}} target="_blank">{{cell}}</a></td>
         {% else %}
           <td class="touristsitetable__cell">{{cell}}</td>
         {% endif %}
@@ -56,8 +57,9 @@
     {% for row in data %}
     <tr class="touristsitetable__row">
       {% for cell in row %}
+      <!-- the 3rd column is site link so make it hyperlink -->
         {% if loop.index == 3 %}
-          <td class="touristsitetable__cell"><a href={{cell}}>{{cell}}</a></td>
+          <td class="touristsitetable__cell"><a href={{cell}} target="_blank">{{cell}}</a></td>
         {% else %}
           <td class="touristsitetable__cell">{{cell}}</td>
         {% endif %}
