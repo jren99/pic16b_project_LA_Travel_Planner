@@ -142,7 +142,7 @@ Depending on what recommendations Tripadvisor gives us, maybe the sightseeing lo
 
 * Ashley Lu
 
-* Jaya Ren
+* Jaya Ren: I built the first version of the webapp using php and html (see folder `django and php test files`) and worked with Stancy to build the final version of the webapp using flask. 
 
 * Stancy Zhang
 
