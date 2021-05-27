@@ -59,6 +59,7 @@ Jingxuan Zhang
     <li><a href="#usage">Usage</a></li>
     <li><a href="#Ethics">Ethics</a></li>
     <li><a href="#Limitations">Limitations</a></li>
+    <li><a href="#Group Contribution">Group Contribution</li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
@@ -134,6 +135,17 @@ Depending on what recommendations Tripadvisor gives us, maybe the sightseeing lo
 * As our recommendations for hotels, food, and attractions are based on matching keywords, this could lead to certain inaccuracy. For example, Getty Center is a museum but doesn't contain the word "museum" in its name, so it won't be included as one of the search results. Smarter search method or better dataset will be needed for further improvement.
 * This planner can only plan up to 10 tourist sites.
 * Generating the most optimal travel plan such that the user can choose some arbitrary number of attractions and days to stay in LA would be a very difficult problem. To determine the distance/duration of each possible route, we would have to send multiple requests to OSRM, which would be time-consuming and inefficient. We could also treat this as a Traveling Salesman type of problem, but it's unrealistic to construct such a route that passes through all the attractions and find nearby hotels for each of them. We think it makes more sense to have one hotel that the user stays in and use it as the starting point for each day's route. It might also be realistic to add an option for two hotels as well, though our implementation currently does not support this.
+
+
+<!-- GROUP CONTRIUBTION -->
+## Group Contributiton 
+
+* Ashley Lu
+
+* Jaya Ren
+
+* Stancy Zhang
+
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
