@@ -59,7 +59,7 @@ Jingxuan Zhang
     <li><a href="#usage">Usage</a></li>
     <li><a href="#Ethics">Ethics</a></li>
     <li><a href="#Limitations">Limitations</a></li>
-    <li><a href="#Group Contribution">Group Contribution</li>
+    <li><a href="#Group-Contribution">Group Contribution</li>
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
