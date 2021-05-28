@@ -11,6 +11,24 @@ import random
 
 app = Flask(__name__)
 
+## trying to add the like feature, currently not working yet
+# app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///users.sqlite3'
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
+
+# db = SQLAlchemy(app)
+
+# class users(db.Model):
+#     '''
+#     store places user likes
+#     '''
+#     _id = db.Column("id", primary_key=True)
+#     site = db.Column(db.String(100))
+#     site_link = db.Column(db.String(1000))
+
+#     def __init__(self, site, site_link):
+#         self.site = site
+#         self.site_link = site_link
+
 @app.route('/', methods=['POST', 'GET'])
 def main():
     """
@@ -454,4 +472,5 @@ def contact():
     return render_template('contact.html')
 
 if __name__ == "__main__":
+    #db.create_all()
     app.run(debug=True)
