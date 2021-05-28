@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_437384b4c54e42e6ad38a5c4f655e331 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_437384b4c54e42e6ad38a5c4f655e331" ></div>
+        
+</body>
+<script>    
+    
+            var map_437384b4c54e42e6ad38a5c4f655e331 = L.map(
+                "map_437384b4c54e42e6ad38a5c4f655e331",
+                {
+                    center: [34.1119985, -118.29263900000001],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    tooltip: "Hover",
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_89f5f1d9b592460687827b836992e6e2 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_437384b4c54e42e6ad38a5c4f655e331);
+        
+    
+            var poly_line_2166fbbb23924788a42417f5dc2abc3a = L.polyline(
+                [[34.07915, -118.29171], [34.07634, -118.2917], [34.07628, -118.28778], [34.07279, -118.28439], [34.06105, -118.25782], [34.05888, -118.25668], [34.05472, -118.2503], [34.05309, -118.24777], [34.05879, -118.24136], [34.07234, -118.23456], [34.07928, -118.22729], [34.08339, -118.22847], [34.08978, -118.23796], [34.10298, -118.2503], [34.11307, -118.26672], [34.12397, -118.27219], [34.12496, -118.27414], [34.13002, -118.27498], [34.13251, -118.2807], [34.1354, -118.28206], [34.136, -118.28727], [34.14086, -118.28817], [34.14199, -118.29024], [34.14352, -118.28962], [34.14485, -118.29356]],
+                {"bubblingMouseEvents": true, "color": "yellow", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "yellow", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 8}
+            ).addTo(map_437384b4c54e42e6ad38a5c4f655e331);
+        
+    
+            var marker_743014df611a42de8a1981d23ec7e804 = L.marker(
+                [34.079147, -118.291714],
+                {}
+            ).addTo(map_437384b4c54e42e6ad38a5c4f655e331);
+        
+    
+            var icon_ced701545b1f44308358a775ed4715ca = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_743014df611a42de8a1981d23ec7e804.setIcon(icon_ced701545b1f44308358a775ed4715ca);
+        
+    
+        var popup_f55deac1184141c2b96e6cbc57d59593 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_4974ee288b9945ddbec280070250f2f3 = $(`<div id="html_4974ee288b9945ddbec280070250f2f3" style="width: 100.0%; height: 100.0%;">North Vermont Avenue, Bicycle District, East Hollywood, Los Angeles, California, 90029-3507, United States</div>`)[0];
+            popup_f55deac1184141c2b96e6cbc57d59593.setContent(html_4974ee288b9945ddbec280070250f2f3);
+        
+
+        marker_743014df611a42de8a1981d23ec7e804.bindPopup(popup_f55deac1184141c2b96e6cbc57d59593)
+        ;
+
+        
+    
+    
+            var marker_4b502c7b08534208bd20992ab11193b2 = L.marker(
+                [34.14485, -118.293564],
+                {}
+            ).addTo(map_437384b4c54e42e6ad38a5c4f655e331);
+        
+    
+            var icon_a2bee49ac2fb44fc801058be08dfa003 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "stop", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_4b502c7b08534208bd20992ab11193b2.setIcon(icon_a2bee49ac2fb44fc801058be08dfa003);
+        
+    
+        var popup_9c88e5eeeaa048809c6b3e10243e16b5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_0f0c777fd42a48529b023454a4c8df69 = $(`<div id="html_0f0c777fd42a48529b023454a4c8df69" style="width: 100.0%; height: 100.0%;">Griffith Park Boys Camp, 4730, Crystal Springs Drive, Griffith Park, Los Angeles, California, 90027, United States</div>`)[0];
+            popup_9c88e5eeeaa048809c6b3e10243e16b5.setContent(html_0f0c777fd42a48529b023454a4c8df69);
+        
+
+        marker_4b502c7b08534208bd20992ab11193b2.bindPopup(popup_9c88e5eeeaa048809c6b3e10243e16b5)
+        ;
+
+        
+    
+    
+            var marker_57b170506ad346fbb1c3ce53e548e2e3 = L.marker(
+                [34.054717, -118.250303],
+                {}
+            ).addTo(map_437384b4c54e42e6ad38a5c4f655e331);
+        
+    
+            var icon_3036db64a777440299b0390814a653de = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_57b170506ad346fbb1c3ce53e548e2e3.setIcon(icon_3036db64a777440299b0390814a653de);
+        
+    
+        var popup_15607c50c91f45f2ae3ba37221a55f12 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_9885d6fb9d47439e96c37db09667d1b7 = $(`<div id="html_9885d6fb9d47439e96c37db09667d1b7" style="width: 100.0%; height: 100.0%;">The Broad Museum, 221, South Grand Avenue, Bunker Hill, Downtown, Los Angeles, California, 90012, United States</div>`)[0];
+            popup_15607c50c91f45f2ae3ba37221a55f12.setContent(html_9885d6fb9d47439e96c37db09667d1b7);
+        
+
+        marker_57b170506ad346fbb1c3ce53e548e2e3.bindPopup(popup_15607c50c91f45f2ae3ba37221a55f12)
+        ;
+
+        
+    
+</script>
