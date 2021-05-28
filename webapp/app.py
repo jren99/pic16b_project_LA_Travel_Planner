@@ -410,6 +410,11 @@ def route_plot(site, day, hotel, transportation):
     for i in range(0, len(maps)):
         maps[i].save("templates/map"+str(i)+".html")
 
+    # for i in range(0, len(maps)):
+    #     print("Day {}".format(i+1))
+    #     print("The traveling distance is {} m".format(route_list[i]["distance"]) )
+    #     print("The traveling duration is {} min".format(route_list[i]["duration"]/60))
+
     return render_template('route.html', site=site, hotel=hotel, day=day, transportation=transportation, maps=maps)
 
 @app.route('/map1/')
@@ -417,6 +422,7 @@ def route_map1():
     """
     This function returns a webpage showing a route map, which is shown on the 'Plan Your Trip!' page.
     """
+    
     return render_template('map0.html')
 
 @app.route('/map2/')

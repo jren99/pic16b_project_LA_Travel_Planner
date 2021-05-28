@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_bf6875d3e30f4b03ad5d69484802de72 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_bf6875d3e30f4b03ad5d69484802de72" ></div>
+        
+</body>
+<script>    
+    
+            var map_bf6875d3e30f4b03ad5d69484802de72 = L.map(
+                "map_bf6875d3e30f4b03ad5d69484802de72",
+                {
+                    center: [34.089573, -118.330924],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    tooltip: "Hover",
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_f19516787ccc426bae86075d5ca274db = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_bf6875d3e30f4b03ad5d69484802de72);
+        
+    
+            var poly_line_d2c155ed5e664b5db42a225f55de0b74 = L.polyline(
+                [[34.07915, -118.29171], [34.08104, -118.29172], [34.08123, -118.29351], [34.08299, -118.2975], [34.08744, -118.30399], [34.09271, -118.30775], [34.09572, -118.31222], [34.09707, -118.31368], [34.10169, -118.31613], [34.10155, -118.33726], [34.10171, -118.3594], [34.10132, -118.36142], [34.10128, -118.3643], [34.10197, -118.36551], [34.10303, -118.36562], [34.10128, -118.3656], [34.10046, -118.36601], [34.1007, -118.36679], [34.10056, -118.36831], [34.101, -118.36821], [34.10105, -118.36898], [34.10078, -118.36912], [34.09958, -118.3683], [34.1, -118.37013]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 8}
+            ).addTo(map_bf6875d3e30f4b03ad5d69484802de72);
+        
+    
+            var marker_6731c3ffe79846a491df8b8012e2893d = L.marker(
+                [34.079147, -118.291714],
+                {}
+            ).addTo(map_bf6875d3e30f4b03ad5d69484802de72);
+        
+    
+            var icon_ce49f4b8187a421c97b08db7014ff71c = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_6731c3ffe79846a491df8b8012e2893d.setIcon(icon_ce49f4b8187a421c97b08db7014ff71c);
+        
+    
+        var popup_8180eaffe51e466382eb098431bbdc00 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7d9cf96861e34930828d30fec7135ac4 = $(`<div id="html_7d9cf96861e34930828d30fec7135ac4" style="width: 100.0%; height: 100.0%;">North Vermont Avenue, Bicycle District, East Hollywood, Los Angeles, California, 90029-3507, United States</div>`)[0];
+            popup_8180eaffe51e466382eb098431bbdc00.setContent(html_7d9cf96861e34930828d30fec7135ac4);
+        
+
+        marker_6731c3ffe79846a491df8b8012e2893d.bindPopup(popup_8180eaffe51e466382eb098431bbdc00)
+        ;
+
+        
+    
+    
+            var marker_998a17769bed41bfa77ae13a55757fdd = L.marker(
+                [34.099999, -118.370134],
+                {}
+            ).addTo(map_bf6875d3e30f4b03ad5d69484802de72);
+        
+    
+            var icon_c10d122c61524e87905eea0e0fbd9c09 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "stop", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_998a17769bed41bfa77ae13a55757fdd.setIcon(icon_c10d122c61524e87905eea0e0fbd9c09);
+        
+    
+        var popup_0f75ad0ae9e846289645a4053b1d1f0d = L.popup({"maxWidth": "100%"});
+
+        
+            var html_5b5dc432a0f04475b3472bdcf346c590 = $(`<div id="html_5b5dc432a0f04475b3472bdcf346c590" style="width: 100.0%; height: 100.0%;">Case Study House No. 22, 1635, Woods Drive, Hollywood Hills West, Los Angeles, California, 90069, United States</div>`)[0];
+            popup_0f75ad0ae9e846289645a4053b1d1f0d.setContent(html_5b5dc432a0f04475b3472bdcf346c590);
+        
+
+        marker_998a17769bed41bfa77ae13a55757fdd.bindPopup(popup_0f75ad0ae9e846289645a4053b1d1f0d)
+        ;
+
+        
+    
+    
+            var marker_d7d32b5473004eeea363fea67c7207be = L.marker(
+                [34.101554, -118.33726],
+                {}
+            ).addTo(map_bf6875d3e30f4b03ad5d69484802de72);
+        
+    
+            var icon_831a2c9a54db4a6cafb7f07ad06395b6 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "circle", "iconColor": "white", "markerColor": "blue", "prefix": "glyphicon"}
+            );
+            marker_d7d32b5473004eeea363fea67c7207be.setIcon(icon_831a2c9a54db4a6cafb7f07ad06395b6);
+        
+    
+        var popup_e9fccbc652a74db4ab67795af8020624 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_cb9e22cfab884a1aa753778c8266e1ed = $(`<div id="html_cb9e22cfab884a1aa753778c8266e1ed" style="width: 100.0%; height: 100.0%;">6751, Hollywood Boulevard, Whitley Heights Historic District, Hollywood, Los Angeles, California, 90028, United States</div>`)[0];
+            popup_e9fccbc652a74db4ab67795af8020624.setContent(html_cb9e22cfab884a1aa753778c8266e1ed);
+        
+
+        marker_d7d32b5473004eeea363fea67c7207be.bindPopup(popup_e9fccbc652a74db4ab67795af8020624)
+        ;
+
+        
+    
+</script>
