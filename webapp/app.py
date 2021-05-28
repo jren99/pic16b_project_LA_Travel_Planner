@@ -126,8 +126,10 @@ def hotel_name(name):
 
 # import the csv file after webscraping the recommended restaurants on TripAdvisor
 dataframe_rt = pd.read_csv('13460_restaurant.csv')
+# add a new col for the rating 
+dataframe_rt['Rate (out of 5)']=dataframe_rt['Rate'].str.split(" ").str[0].astype(float)
 # get the data from columns of "Rank", "Restaurant Name", "Style", "Rate", "Site Link"
-dataframe_restaurant = dataframe_rt[["Rank", "Restaurant Name", "Style", "Rate", "Site Link"]]
+dataframe_restaurant = dataframe_rt[["Rank", "Restaurant Name", "Style", "Rate (out of 5)", "Site Link"]]
 # get the headers into a tuple
 restaurant_header = tuple(dataframe_restaurant)
 # get the data of the dataframe into a tuple
@@ -155,8 +157,12 @@ def restaurant_name(name):
     """
     # get the header of the dataframe
     restaurant_header = tuple(dataframe_restaurant)
-    # filter the dataframe by not being case-sensitive and not including NaN rows
-    dataframe_restaurant_update = dataframe_restaurant[dataframe_restaurant["Style"].str.contains(str(name).lower(), na = False, case = False)]
+    if isfloat(name):
+        # filter dataframe with rating higher than or equal to the input
+        dataframe_restaurant_update = dataframe_restaurant[dataframe_restaurant["Rate (out of 5)"]>=float(name)]
+    else:
+        # filter the dataframe by not being case-sensitive and not including NaN rows
+        dataframe_restaurant_update = dataframe_restaurant[dataframe_restaurant["Style"].str.contains(str(name).lower(), na = False, case = False)]
     # fill up the rows of the dataframe
     restaurant_body_update = tuple(dataframe_restaurant_update.itertuples(index=False, name=None))
     
