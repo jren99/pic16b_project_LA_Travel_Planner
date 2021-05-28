@@ -9,36 +9,7 @@ Jingxuan Zhang
 
 ## LA Travel planner
 <img src="Logo.png" alt="logo" width=30%/>
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#Execution">Execution</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#Ethics">Ethics</a></li>
-    <li><a href="#Limitations">Limitations</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
-  </ol>
-</details>
 
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-<img src="Home.png" alt="home" width=70%/>
 <!-- TABLE OF CONTENTS -->
 <details open="open">
   <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
@@ -63,6 +34,11 @@ Jingxuan Zhang
     <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+<img src="Home.png" alt="home" width=70%/>
 
 When it comes to traveling, sometimes it can be a struggle to plan out where you want to go, especially if you're going somewhere you've never been to before. Our project aims to create a travel planning tool that gives attraction, hotel, and food recommendations to LA tourists, and provides a detailed and personalized travel plan based on users' selections, including attractions to go for each day and a route recommendation.
 
@@ -103,7 +79,7 @@ make sure you are in the folder `pic16b_project`
    ```
 ### Execution  
 
-make sure you current working directory is `pic16b_project/webapp`
+make sure your current working directory is `pic16b_project/webapp`
 ```sh
    $ python3 app.py
    ```
@@ -115,18 +91,18 @@ make sure you current working directory is `pic16b_project/webapp`
 After the users open the webapp locally on their computers, the users can see **six clickable buttons** in the navigation bar on the top of the home page:
 * **Home**: This page mainly consists of a brief description of our project, including the main purpose and the basic structure.
 * **Tourist Attraction Recommendations**: Users will see a data list of all the recommended tourist attractions that we got the data through webscraping on TripAdvisor when they first open this page. After the users input a keyword in the search box and click **Search**, they may see another **two clickable buttons**. The users may click **Click here to see all the possible tourist sites** to see a filtered data list with all the tourist sites containing that keyword. If the users want to try again to input another keyword, the users may click **Try a new keyword**.
-* **Hotel Recommendations**: The users are also able to check out the hotels in LA. Similarly, the users will see a list of recommended hotels in LA. We also designed a search bar for the users to only see the hotels containing the keyword input by users.
-* **Restaurant Recommendations**: After the users entering this webpage, the users will be able to see a data list containing all the recommended food in LA. The users can also filter the data list based on their input keyword, such as entering Japanese to search for all the restaurants that provided Japanese food.
+* **Hotel Recommendations**: The users are also able to check out the hotels in LA. Similarly, the users will see a list of recommended hotels in LA. Users are allowed to input either a keyword or a number that represents the minimum rating of hotels they want to see. As a result, they will see a filtered list of hotels either containing the keyword or rating higher than the input number.
+* **Restaurant Recommendations**: After the users entering this webpage, the users will be able to see a data list containing all the recommended restaurants in LA. The users can also filter the data list based on their input keyword or number, such as entering Japanese to search for all the restaurants that provided Japanese food or entering 4 to see all restaurants with rating higher than 4.
 * **Plan Your Trip!**: Based on the recommended tourist attraction list and the recommended hotel list, the users are required to give four inputs, which are the tourist attractions they are interested in, the number of days they plan to stay, one hotel they plan to stay, and the mode of transportation they are going to use. After the users click **Search for an optimized route**, they need to follow the steps below to obtain their personalized travel plan:
-	* **Step One: Click here to generate route.**: The users need to click this button first. Our webapp will automatically start webscraping the locations of the places the users want to go and then generate the route. This might take a little while based on the number of places the users want to go.
-	* **Step Two: Click here to see the Day-n route.** (where n depends on the number of days the users' input): After the webpage has finished loading, the users may click this button to see each day's route we generated for them. Note that the number of days must be no larger than the number of attractions.
+	* **Step One: Click here to generate route.**: The users need to click this button first. Our webapp will automatically start webscraping the locations of the places the users want to go and then generate the route. This might take a little while based on the number of places the users want to go. After it finishes loading, the user may proceed to the next step.
+	* **Step Two: Click here to see the Day-n route.** (where n depends on the number of days the users' input): After the webpage has finished loading, the users will be able to see a short summary of the travel planner, including the travel distance and duration for each day. They may click on buttons below to see each day's route we generated for them. Note that the number of days must be no larger than the number of attractions.
 	* **Plan a new trip: Click here.**: This button is for users to enter different inputs to generate a new travel plan.
 * **Contact Us**: We appreciate any feedback for our project. Feel free to submit anything you want to tell us via the google form.
 
 <!-- ETHICS -->
 ## Ethics
 
-Depending on what recommendations Tripadvisor gives us, maybe the sightseeing locations will privilege some cultural sites above others, depending on what races and ethnicities are more prevalent in a location. Also, if we’re recommending sightseeing and hotel locations, Tripadvisor might favor larger and more popular sites rather than smaller sites. As popularity is largely based on positive reviews, it's hardly objective since there are many bogus positive reviews.
+Depending on what recommendations Tripadvisor gives us, maybe the sightseeing locations will privilege some cultural sites above others, depending on what races and ethnicities are more prevalent in a location. Also, if we’re recommending sightseeing and hotel locations, Tripadvisor might favor larger and more popular sites rather than smaller sites. As popularity is largely based on positive reviews, it's hardly objective since there are many bogus positive reviews. 
 
 <!-- LIMITATIONS -->
 ## Limitations
