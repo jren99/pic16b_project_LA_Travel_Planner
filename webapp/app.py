@@ -7,7 +7,7 @@ from geopy.geocoders import Nominatim # Geopy is a Python client for geocoding. 
 import folium # visualizes data on map; wondering if I can replace this with plotly express
 import polyline # Python implementation of Google’s Encoded Polyline Algorithm Format
 import random
-from helper_function import isfloat
+from helper_function import isfloat, route_summary
 
 app = Flask(__name__)
 
@@ -410,12 +410,11 @@ def route_plot(site, day, hotel, transportation):
     for i in range(0, len(maps)):
         maps[i].save("templates/map"+str(i)+".html")
 
-    # for i in range(0, len(maps)):
-    #     print("Day {}".format(i+1))
-    #     print("The traveling distance is {} m".format(route_list[i]["distance"]) )
-    #     print("The traveling duration is {} min".format(route_list[i]["duration"]/60))
+    output = route_summary(maps, route_list)
 
-    return render_template('route.html', site=site, hotel=hotel, day=day, transportation=transportation, maps=maps)
+    return render_template('route.html', site=site, hotel=hotel, day=day, transportation=transportation, maps=maps, output = output)
+
+
 
 @app.route('/map1/')
 def route_map1():
