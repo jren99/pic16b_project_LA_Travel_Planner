@@ -7,7 +7,7 @@ from geopy.geocoders import Nominatim # Geopy is a Python client for geocoding. 
 import folium # visualizes data on map; wondering if I can replace this with plotly express
 import polyline # Python implementation of Google’s Encoded Polyline Algorithm Format
 import random
-
+from helper_function import isfloat
 
 app = Flask(__name__)
 
@@ -76,12 +76,19 @@ def touristsite_name(name):
 
 # import the csv file after webscraping the recommended hotels on TripAdvisor
 dataframe_ht = pd.read_csv('420_hotel.csv')
+# add a col 
+# new col is the rating of the hotel
+dataframe_ht['Rate (out of 5)']=dataframe_ht['Rate'].str.split(" ").str[0].astype(float)
 # get the data from columns of "Rank", "Hotel Name", "Rate", "Site Link"
-dataframe_hotel = dataframe_ht[["Rank", "Hotel Name", "Rate", "Site Link"]]
+dataframe_hotel = dataframe_ht[["Rank", "Hotel Name", "Rate (out of 5)", "Site Link"]]
+
 # get the headers into a tuple
 hotel_header = tuple(dataframe_hotel)
 # get the data of the dataframe into a tuple
 hotel_body = tuple(dataframe_hotel.itertuples(index=False, name=None))
+
+
+    
 
 @app.route('/hotel/', methods=['POST', 'GET'])
 def hotel():
@@ -106,7 +113,12 @@ def hotel_name(name):
     # get the header of the dataframe
     hotel_header = tuple(dataframe_hotel)
     # filter the dataframe by not being case-sensitive and not including NaN rows
-    dataframe_hotel_update = dataframe_hotel[dataframe_hotel["Hotel Name"].str.contains(str(name).lower(), na = False, case = False)]
+    if isfloat(name):
+         # find hotel ratings that are larger than or equal to the input number
+        dataframe_hotel_update = dataframe_hotel[dataframe_hotel["Rate (out of 5)"]>=float(name)]
+    else:
+       # find the hotels which names contain keywords
+        dataframe_hotel_update = dataframe_hotel[dataframe_hotel["Hotel Name"].str.contains(str(name).lower(), na = False, case = False)]
     # fill up the rows of the dataframe
     hotel_body_update = tuple(dataframe_hotel_update.itertuples(index=False, name=None))
     
