@@ -7,7 +7,7 @@
 {% block content %}
   
   <form method="post">
-    <h3 for="name">Which style of the restaurants you want to go? <br> Or what's the minimum rating for the restaurants you want want to go?</h3>
+    <h3 for="name">Which style of the restaurants you want to go? <br> Or what's the minimum rating for the restaurants you want to go?</h3>
     <div class="wrap">
       <div class="search">    
         <input name="name" placeholder="for example: Japanese" id="site">
@@ -16,7 +16,7 @@
   </form>
   <h3>Here is a list of the <b>recommended restaurants</b> on TripAdvisor.</h3>
   {% if name %}
-  <p>After filtering based on your keyword...</p>
+  <p><b>After filtering based on your keyword...</b></p>
   <ul>
     <li><a class="filter" href="http://127.0.0.1:5000/restaurant/{{name}}/">Click here to see all the possible restaurants</a></li>
   </ul>
