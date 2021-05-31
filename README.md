@@ -102,7 +102,7 @@ After the users open the webapp locally on their computers, the users can see **
 <!-- ETHICS -->
 ## Ethics
 
-Depending on what recommendations Tripadvisor gives us, maybe the sightseeing locations will privilege some cultural sites above others, depending on what races and ethnicities are more prevalent in a location. Also, if we’re recommending sightseeing and hotel locations, Tripadvisor might favor larger and more popular sites rather than smaller sites. As popularity is largely based on positive reviews, it's hardly objective since there are many bogus positive reviews. 
+Depending on what recommendations Tripadvisor gives us, maybe the sightseeing locations will privilege some cultural sites above others, depending on what races and ethnicities are more prevalent in a location. Also, if we’re recommending sightseeing and hotel locations, Tripadvisor might favor larger and more popular sites rather than smaller sites. As popularity is largely based on positive reviews, it's hardly objective since there are many bogus positive reviews.
 
 <!-- LIMITATIONS -->
 ## Limitations
@@ -110,24 +110,28 @@ Depending on what recommendations Tripadvisor gives us, maybe the sightseeing lo
 * Because of the inefficiency of scraper, we were only able to obtain a dataset for LA instead of California or even larger range. Hence, our webapp is limited to users who want to plan a trip to LA. However, we believe a more efficient scraping method can potentially extend the functionality of our app to larger area.
 * As our recommendations for hotels, food, and attractions are based on matching keywords, this could lead to certain inaccuracy. For example, Getty Center is a museum but doesn't contain the word "museum" in its name, so it won't be included as one of the search results. Smarter search method or better dataset will be needed for further improvement.
 * This planner can only plan up to 10 tourist sites.
-* Users cannot create an account to save browsing history. 
+* Users cannot create an account to save browsing history.
 * Generating the most optimal travel plan such that the user can choose some arbitrary number of attractions and days to stay in LA would be a very difficult problem. To determine the distance/duration of each possible route, we would have to send multiple requests to OSRM, which would be time-consuming and inefficient. We could also treat this as a Traveling Salesman type of problem, but it's unrealistic to construct such a route that passes through all the attractions and find nearby hotels for each of them. We think it makes more sense to have one hotel that the user stays in and use it as the starting point for each day's route. It might also be realistic to add an option for two hotels as well, though our implementation currently does not support this.
-
+* Currently, the route visualization doesn't support having a greater number of
+days than locations. The *locations_per_day* function creates empty lists for
+days that have no locations, but the later functions do not take into account
+the possibility that there are empty lists, so there will be index out of range
+errors.
 
 <!-- GROUP CONTRIBUTION -->
-## Group Contribution 
+## Group Contribution
 
-* Ashley Lu
+* Ashley Lu: I created the "back-end" route visualizer that obtains the lat/lon coordinates for the addresses, generates the random travel plan based on the user's preferred number of attractions and days they will be staying in LA, and plots the route information on an interactive map.
 
-* Jaya Ren: I built the first version of the webapp using php and html (see folder `django and php test files`) and worked with Stancy to build the final version of the webapp using flask. 
+* Jaya Ren: I built the first version of the webapp using php and html (see folder `django and php test files`) and worked with Stancy to build the final version of the webapp using flask.
 
-* Stancy Zhang
+* Jingxuan(Stancy) Zhang: I extracted the data of the recommended tourist sites, hotels, and restaurants on TripAdvisor by webscraping and saved those extracted data into separated CSV files (see both the webscraping codes and CSV files in folder `webscraping`). I also created the first version of the webapp using Flask and finished building it with Jaya.
 
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
-* [TripAdvisor](https://www.tripadvisor.com/): Since our project aims to provide a list of hotels, attractions, and restaurants recommendations, we need reliable and latest data sets. Hence, we accessed the information above from TripAdvisor. 
+* [TripAdvisor](https://www.tripadvisor.com/): Since our project aims to provide a list of hotels, attractions, and restaurants recommendations, we need reliable and latest data sets. Hence, we accessed the information above from TripAdvisor.
 * [OpenStreetMap](https://www.openstreetmap.org/copyright): OSM provides all of the map data we use to generate the routes and create the route visualizations. We are very thankful that such an amazing service is open-source!
 * [Worth Web Scraping - Mike](https://www.youtube.com/watch?v=HMkckLiHOio): We learned how to use BeautifulSoup for webscraping based on this video though we used a different method for webscraping. Thank you so much for making this tutorial video!
 * [teclado](https://www.youtube.com/watch?v=mCy52I4exTU&t=7s): Thank you for the tutorial about how to show a dataframe on the web app!
