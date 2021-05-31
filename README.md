@@ -56,7 +56,7 @@ We use the Python implementation of Polyline, which is Google's Encoded Polyline
 * [Folium](http://python-visualization.github.io/folium/):
 We use Folium to visualize route data on an interactive leaflet map. Folium supports Polyline, so it is the best module to use with OSRM.
 * [Flask](https://flask.palletsprojects.com/en/2.0.x/):
-We used Flask to develop our webapp for this project. Since it's written in Python, it makes it easier for us to directly use the functions we have created in Jupyter Notebook and call them after typing the created functions in the webapp files.
+We used Flask to develop our webapp for this project. Since it's written in Python, it makes it easier for us to directly call the functions we have created before in Jupyter Notebook.
 
 
 
