@@ -121,7 +121,7 @@ errors.
 <!-- GROUP CONTRIBUTION -->
 ## Group Contribution
 
-* Ashley Lu
+* Ashley Lu: I created the "back-end" route visualizer that obtains the lat/lon coordinates for the addresses, generates the random travel plan based on the user's preferred number of attractions and days they will be staying in LA, and plots the route information on an interactive map.
 
 * Jaya Ren: I built the first version of the webapp using php and html (see folder `django and php test files`) and worked with Stancy to build the final version of the webapp using flask.
 
