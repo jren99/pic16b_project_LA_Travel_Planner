@@ -125,7 +125,7 @@ errors.
 
 * Jaya Ren: I built the first version of the webapp using php and html (see folder `django and php test files`) and worked with Stancy to build the final version of the webapp using flask.
 
-* Stancy Zhang
+* Jingxuan(Stancy) Zhang: I extracted the data of the recommended tourist sites, hotels, and restaurants on TripAdvisor by webscraping and saved those extracted data into separated CSV files (see both the webscraping codes and CSV files in folder `webscraping`). I also created the first version of the webapp using Flask and finalized it with Jaya.
 
 
 <!-- ACKNOWLEDGEMENTS -->
