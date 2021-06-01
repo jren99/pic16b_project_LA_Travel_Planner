@@ -109,8 +109,8 @@ Depending on what recommendations Tripadvisor gives us, maybe the sightseeing lo
 
 * Because of the inefficiency of scraper, we were only able to obtain a dataset for LA instead of California or even larger range. Hence, our webapp is limited to users who want to plan a trip to LA. However, we believe a more efficient scraping method can potentially extend the functionality of our app to larger area.
 * As our recommendations for hotels, food, and attractions are based on matching keywords, this could lead to certain inaccuracy. For example, Getty Center is a museum but doesn't contain the word "museum" in its name, so it won't be included as one of the search results. Smarter search method or better dataset will be needed for further improvement.
-* This planner can only plan up to 10 tourist sites.
-* Users cannot create an account to save browsing history.
+* This planner can only plan up to 10 tourist sites. To improve this, we will have to either find a way to automatically generate a webpage for each route or find a way to show all the maps all at once on the same webpage. 
+* Users cannot create an account to save the planners they’ve created. This requires us to create a sql database.
 * Generating the most optimal travel plan such that the user can choose some arbitrary number of attractions and days to stay in LA would be a very difficult problem. To determine the distance/duration of each possible route, we would have to send multiple requests to OSRM, which would be time-consuming and inefficient. We could also treat this as a Traveling Salesman type of problem, but it's unrealistic to construct such a route that passes through all the attractions and find nearby hotels for each of them. We think it makes more sense to have one hotel that the user stays in and use it as the starting point for each day's route. It might also be realistic to add an option for two hotels as well, though our implementation currently does not support this.
 * Currently, the route visualization doesn't support having a greater number of
 days than locations. The *locations_per_day* function creates empty lists for
