@@ -341,13 +341,13 @@ def get_map(route, route_color, addresses, hotel_df):
     Draw the route on an interactive map.
     """
 
-    if 'start_point' not in route:
-        return None
-
-    else:
+    try:
         m = folium.Map(location=[(route['start_point'][0] + route['end_point'][0])/2, 
                                 (route['start_point'][1] + route['end_point'][1])/2], 
                        zoom_start=15, tooltip = "Hover")
+
+    except KeyError:
+        return None
 
     folium.PolyLine(
         route['route'],
