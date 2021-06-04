@@ -409,7 +409,7 @@ def route_plot(site, day, hotel, transportation):
         if 'start_point' in route_list[i]:
             maps.append(get_map(route_list[i], list_colors[i], addresses[i], hotel_df))
         else:
-            maps.append(None)
+            maps.append(folium.Map())
     
     for i in range(0, len(maps)):
         if maps[i] is not None:
