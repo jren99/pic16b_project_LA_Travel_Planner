@@ -288,7 +288,7 @@ def get_route(coordinates, hotel, transportation):
     if r.status_code!= 200:
         print("Failed")
         return {}
-  
+    
     res = r.json()
     routes = polyline.decode(res['routes'][0]['geometry']) # the geometry specifies the polyline encoding
     start_point = [res['waypoints'][0]['location'][1], res['waypoints'][0]['location'][0]] # 0th waypoint corresponds to the starting location
@@ -340,6 +340,9 @@ def get_map(route, route_color, addresses, hotel_df):
     """
     Draw the route on an interactive map.
     """
+    if not route:
+        return
+
     m = folium.Map(location=[(route['start_point'][0] + route['end_point'][0])/2, 
                              (route['start_point'][1] + route['end_point'][1])/2], 
                    zoom_start=15, tooltip = "Hover")
