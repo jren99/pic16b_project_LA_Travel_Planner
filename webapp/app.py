@@ -409,10 +409,11 @@ def route_plot(site, day, hotel, transportation):
         if 'start_point' in route_list[i]:
             maps.append(get_map(route_list[i], list_colors[i], addresses[i], hotel_df))
         else:
-            continue
+            maps.append(None)
     
     for i in range(0, len(maps)):
-        maps[i].save("templates/map"+str(i)+".html")
+        if maps[i] is not None:
+            maps[i].save("templates/map"+str(i)+".html")
 
     output = route_summary(maps, route_list)
 
