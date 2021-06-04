@@ -341,13 +341,9 @@ def get_map(route, route_color, addresses, hotel_df):
     Draw the route on an interactive map.
     """
 
-    try:
-        m = folium.Map(location=[(route['start_point'][0] + route['end_point'][0])/2, 
-                                (route['start_point'][1] + route['end_point'][1])/2], 
-                       zoom_start=15, tooltip = "Hover")
-
-    except KeyError:
-        return None
+    m = folium.Map(location=[(route['start_point'][0] + route['end_point'][0])/2, 
+                             (route['start_point'][1] + route['end_point'][1])/2], 
+                   zoom_start=15, tooltip = "Hover")
 
     folium.PolyLine(
         route['route'],
@@ -410,7 +406,10 @@ def route_plot(site, day, hotel, transportation):
 
     maps = []
     for i in range(len(route_list)):
-        maps.append(get_map(route_list[i], list_colors[i], addresses[i], hotel_df))
+        if 'start_point' not in route_list[i]:
+            continue
+        else:
+            maps.append(get_map(route_list[i], list_colors[i], addresses[i], hotel_df))
     
     for i in range(0, len(maps)):
         maps[i].save("templates/map"+str(i)+".html")
