@@ -109,14 +109,10 @@ Depending on what recommendations Tripadvisor gives us, maybe the sightseeing lo
 
 * Because of the inefficiency of scraper, we were only able to obtain a dataset for LA instead of California or even larger range. Hence, our webapp is limited to users who want to plan a trip to LA. However, we believe a more efficient scraping method can potentially extend the functionality of our app to larger area.
 * As our recommendations for hotels, food, and attractions are based on matching keywords, this could lead to certain inaccuracy. For example, Getty Center is a museum but doesn't contain the word "museum" in its name, so it won't be included as one of the search results. Smarter search method or better dataset will be needed for further improvement.
-* This planner can only plan up to 10 tourist sites. To improve this, we will have to either find a way to automatically generate a webpage for each route or find a way to show all the maps all at once on the same webpage. 
+* This planner can only plan up to 10 tourist sites. To improve this, we will have to either find a way to automatically generate a webpage for each route or find a way to show all the maps all at once on the same webpage.
 * Users cannot create an account to save the planners they’ve created. This requires us to create a sql database.
 * Generating the most optimal travel plan such that the user can choose some arbitrary number of attractions and days to stay in LA would be a very difficult problem. To determine the distance/duration of each possible route, we would have to send multiple requests to OSRM, which would be time-consuming and inefficient. We could also treat this as a Traveling Salesman type of problem, but it's unrealistic to construct such a route that passes through all the attractions and find nearby hotels for each of them. We think it makes more sense to have one hotel that the user stays in and use it as the starting point for each day's route. It might also be realistic to add an option for two hotels as well, though our implementation currently does not support this.
-* Currently, the route visualization doesn't support having a greater number of
-days than locations. The *locations_per_day* function creates empty lists for
-days that have no locations, but the later functions do not take into account
-the possibility that there are empty lists, so there will be index out of range
-errors.
+* Some of the addresses for the locations are not compatible with the location_cleaner function, which assumes that the parts of the address that "don't work" are at the end of the address or in the middle of the address. This creates issues if the parts that "don't work" are at the beginning of the address. These addresses are unable to generate routes, so currently they will show up as empty maps with the above text saying "there are no travels on this day." This could probably be fixed if we use the attraction name as a backup in case the address fails to be read by OSM, since sometimes OSM is able to obtain the address from the attraction name itself.
 
 <!-- GROUP CONTRIBUTION -->
 ## Group Contribution
