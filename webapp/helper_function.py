@@ -11,7 +11,10 @@ def isfloat(value):
 def route_summary(maps, route_list):
     s=""
     for i in range(0, len(maps)):
-        s += ("Day {}:".format(i+1)
-        + " The traveling distance is {} miles".format(round(route_list[i]["distance"]/1609,1))
-        + " and the traveling duration is {} min. ".format(round(route_list[i]["duration"]/60,1) ))
+        if 'distance' in route_list[i]:
+            s += ("Day {}:".format(i+1)
+            + " The traveling distance is {} miles".format(round(route_list[i]["distance"]/1609,1))
+            + " and the traveling duration is {} min. ".format(round(route_list[i]["duration"]/60,1) ))
+        else:
+            s += ("Day {}:".format(i+1) + " This day has no travels.")
     return s
