@@ -406,10 +406,10 @@ def route_plot(site, day, hotel, transportation):
 
     maps = []
     for i in range(len(route_list)):
-        if 'start_point' not in route_list[i]:
-            continue
-        else:
+        if 'start_point' in route_list[i]:
             maps.append(get_map(route_list[i], list_colors[i], addresses[i], hotel_df))
+        else:
+            continue
     
     for i in range(0, len(maps)):
         maps[i].save("templates/map"+str(i)+".html")
