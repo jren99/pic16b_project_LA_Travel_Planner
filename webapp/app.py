@@ -11,7 +11,7 @@ from helper_function import isfloat, route_summary
 
 app = Flask(__name__)
 
-## trying to add the like feature, currently not working yet
+# trying to add the like feature, currently not working yet
 # app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///users.sqlite3'
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] =False
 
@@ -29,12 +29,20 @@ app = Flask(__name__)
 #         self.site = site
 #         self.site_link = site_link
 
+
+
+# Webpage: Home
+
 @app.route('/', methods=['POST', 'GET'])
 def main():
     """
     This controls the 'Home' page.
     """
     return render_template('main.html')
+
+
+
+# Webpage: Tourist Attraction Recommendations
 
 # import the csv file after webscraping the recommended tourist sites on TripAdvisor
 dataframe_ts = pd.read_csv('2520_touristsite.csv')
@@ -63,7 +71,8 @@ def touristsite():
 def touristsite_name(name):
     """
     This function receives the input of the keyword from the above 'touristsite' function
-    and returns a filtered dataframe with all the tourist sites containing that input keyword.
+    and returns a filtered dataframe with all the tourist sites containing that input keyword,
+    while the input is not case sensitive.
     """
     # get the header of the dataframe
     touristsite_header = tuple(dataframe_touristsite)
@@ -74,6 +83,10 @@ def touristsite_name(name):
     
     return render_template('touristsite.html', name=name, headings_update=touristsite_header, data_update=touristsite_body_update)
 
+
+
+# Webpage: Hotel Recommendations
+
 # import the csv file after webscraping the recommended hotels on TripAdvisor
 dataframe_ht = pd.read_csv('420_hotel.csv')
 # add a col 
@@ -81,14 +94,10 @@ dataframe_ht = pd.read_csv('420_hotel.csv')
 dataframe_ht['Rate (out of 5)']=dataframe_ht['Rate'].str.split(" ").str[0].astype(float)
 # get the data from columns of "Rank", "Hotel Name", "Rate", "Site Link"
 dataframe_hotel = dataframe_ht[["Rank", "Hotel Name", "Rate (out of 5)", "Site Link"]]
-
 # get the headers into a tuple
 hotel_header = tuple(dataframe_hotel)
 # get the data of the dataframe into a tuple
 hotel_body = tuple(dataframe_hotel.itertuples(index=False, name=None))
-
-
-    
 
 @app.route('/hotel/', methods=['POST', 'GET'])
 def hotel():
@@ -108,7 +117,8 @@ def hotel():
 def hotel_name(name):
     """
     This function receives the input of the keyword from the above 'hotel' function
-    and returns a filtered dataframe with all the hotels containing that input keyword.
+    and returns a filtered dataframe with all the hotels containing that input keyword,
+    while the input is not case sensitive.
     """
     # get the header of the dataframe
     hotel_header = tuple(dataframe_hotel)
@@ -123,6 +133,10 @@ def hotel_name(name):
     hotel_body_update = tuple(dataframe_hotel_update.itertuples(index=False, name=None))
     
     return render_template('hotel.html', name=name, headings_update=hotel_header, data_update=hotel_body_update)
+
+
+
+# Webpage: Restaurant Recommendations
 
 # import the csv file after webscraping the recommended restaurants on TripAdvisor
 dataframe_rt = pd.read_csv('13460_restaurant.csv')
@@ -153,7 +167,8 @@ def restaurant():
 def restaurant_name(name):
     """
     This function receives the input of the keyword from the above 'restaurant_name' function
-    and returns a filtered dataframe with all the restaurants containing that input keyword.
+    and returns a filtered dataframe with all the restaurants containing that input keyword,
+    while the input is not case sensitive.
     """
     # get the header of the dataframe
     restaurant_header = tuple(dataframe_restaurant)
@@ -168,9 +183,14 @@ def restaurant_name(name):
     
     return render_template('restaurant.html', name=name, headings_update=restaurant_header, data_update=restaurant_body_update)
 
+
+
+# Webpage: Plan Your Trip!
+
 def visit_tourist(df, want_to_go_name):
     """
-    Get the site links based on the input of the tourist sites the user wants to go.
+    Get the site links based on the input of the tourist sites the user wants to go from the tourist site dataframe,
+    while the input is not case sensitive.
     """
     # lowercase the input
     want_to_go_name = want_to_go_name.lower()
@@ -187,7 +207,8 @@ def visit_tourist(df, want_to_go_name):
 
 def visit_hotel(df, want_to_go_name):
     """
-    Get the site links based on the input of the hotel the user wants to go.
+    Get the site links based on the input of the hotel the user wants to live from the hotel dataframe,
+    while the input is not case sensitive.
     """
     
     visit_html = df[["Hotel Name", "Site Link"]][df["Hotel Name"].str.lower() == want_to_go_name.lower()]
@@ -197,29 +218,34 @@ def visit_hotel(df, want_to_go_name):
 def find_location(visit_html):
     """
     Get the information of the locations by webscraping through the site links.
+    Webscraping codes below are based on investigating the developer tools on TripAdvisor webpage.
     """
+    # create a new list consisting of the addresses for all places the users want to go
     location = []
-
+    # go to each site link
     for link in visit_html["Site Link"]:
         html = requests.get(link)
         bsobj = soup(html.content, "lxml")
 
         for loc in bsobj.find_all("script", type = "application/ld+json"):
+            # get the information by choosing the correct part of the html
             if "streetAddress" in loc.string:
                 find_part_html = loc.string.split("{")
                 for street in find_part_html:
                     if "streetAddress" in street:
                         for value in street.split(","):
+                            # get the street name
                             if "streetAddress" in value:
                                 street_name = value.split(":")[1][1:][:-1] + ", "
-
+                            # get the city name
                             if "addressLocality" in value:
                                 city_name = value.split(":")[1][1:][:-1] + ", "
-
+                            # get the zipcode
                             if "postalCode" in value:
                                 zipcode = "CA " + value.split(":")[1][1:][:-1]
-
+        # combine the street name, city name, and zipcode together
         location_info = street_name + city_name + zipcode
+        # add to the output and then loop over again for a new site link
         location.append(location_info)
 
     return location
@@ -276,6 +302,7 @@ def locations_per_day(df, travel_length):
     return (coordinates, addresses)
 
 def get_route(coordinates, hotel, transportation):
+    transportation = transportation.lower() # make input transportation not case sensitive
     loc = str(hotel.iloc[0]["Longitude"]) + "," + str(hotel.iloc[0]["Latitude"]) + ";"
     for i in range(len(coordinates)):
         if i == len(coordinates) - 1:
@@ -418,8 +445,6 @@ def route_plot(site, day, hotel, transportation):
     output = route_summary(maps, route_list)
 
     return render_template('route.html', site=site, hotel=hotel, day=day, transportation=transportation, maps=maps, output = output)
-
-
 
 @app.route('/map1/')
 def route_map1():
