@@ -45,6 +45,8 @@ When it comes to traveling, sometimes it can be a struggle to plan out where you
 
 ### Built With
 
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/):
+We used Flask to develop our webapp for this project. Since it's written in Python, it makes it easier for us to directly call the functions we have created before in Jupyter Notebook.
 * [Beautiful Soup](https://www.crummy.com/software/BeautifulSoup/bs4/doc/):
 Beautiful Soup is a commonly used Python Library by programmers for webscraping. We use Beautiful Soup to get the data, which are saved in CSV files, through webscraping.
 * [Geopy](https://geopy.readthedocs.io/en/stable/#nominatim):
@@ -55,8 +57,6 @@ OSRM is a routing engine that uses OpenStreetMap (OSM) data to generate the shor
 We use the Python implementation of Polyline, which is Google's Encoded Polyline Algorithm Format that stores a series of coordinates as an encoded string.
 * [Folium](http://python-visualization.github.io/folium/):
 We use Folium to visualize route data on an interactive leaflet map. Folium supports Polyline, so it is the best module to use with OSRM.
-* [Flask](https://flask.palletsprojects.com/en/2.0.x/):
-We used Flask to develop our webapp for this project. Since it's written in Python, it makes it easier for us to directly call the functions we have created before in Jupyter Notebook.
 
 
 
@@ -121,7 +121,7 @@ Depending on what recommendations Tripadvisor gives us, maybe the sightseeing lo
 
 * Jaya Ren: I built the first version of the webapp using php and html (see in folder `django and php test files`) and worked with Stancy to build the final version of the webapp using flask, which enables different filters for hotels, attractions, and restaurants, the generated route as well as its summary, and a submision form for users to contact us.
 
-* Jingxuan(Stancy) Zhang: I extracted the data of the recommended tourist sites, hotels, and restaurants on TripAdvisor by webscraping and saved those extracted data into separated CSV files (see both the webscraping codes and CSV files in folder `webscraping`). I also created the first version of the webapp using Flask and finished building it with Jaya.
+* Jingxuan(Stancy) Zhang: I extracted the data of the recommended tourist sites, hotels, and restaurants in Los Angeles on TripAdvisor by webscraping and saved those extracted data into separated CSV files (see both the webscraping codes and CSV files in folder `webscraping`). I also created the first version of the webapp using Flask (see folder `draft`): I made a basic structure of the webapp, showed the webscraping csv files in tables with basic filtering functionality, made all the back-end codes operate well with users' inputs on the webapp with basic instructions to generate the route. Finally, I finished building it with Jaya that I mainly addressed the users' input to make it more flexible, such as solving the case-sensitive problem.
 
 
 <!-- ACKNOWLEDGEMENTS -->
