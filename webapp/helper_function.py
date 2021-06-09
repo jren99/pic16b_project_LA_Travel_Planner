@@ -9,6 +9,9 @@ def isfloat(value):
         return False
 
 def route_summary(maps, route_list):
+    '''
+    this function displays a travel plan summary includes travel length and time for each day.
+    '''
     s=""
     for i in range(0, len(maps)):
         if 'distance' in route_list[i]:
