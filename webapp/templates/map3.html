@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_079117f8eac541a090755bdda6050239 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_079117f8eac541a090755bdda6050239" ></div>
+        
+</body>
+<script>    
+    
+            var map_079117f8eac541a090755bdda6050239 = L.map(
+                "map_079117f8eac541a090755bdda6050239",
+                {
+                    center: [34.0740835, -118.2707555],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 15,
+                    zoomControl: true,
+                    preferCanvas: false,
+                    tooltip: "Hover",
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_73c51c4d29074fdbb1e65d2639415e57 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_079117f8eac541a090755bdda6050239);
+        
+    
+            var poly_line_a746d9fb2d054af79e4e0bf59e535851 = L.polyline(
+                [[34.09345, -118.29121], [34.09345, -118.29176], [34.07634, -118.2917], [34.07628, -118.28778], [34.07402, -118.28632], [34.07279, -118.28439], [34.06105, -118.25782], [34.06047, -118.25823], [34.05888, -118.25668], [34.05472, -118.2503]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.6, "smoothFactor": 1.0, "stroke": true, "weight": 8}
+            ).addTo(map_079117f8eac541a090755bdda6050239);
+        
+    
+            var marker_a7dfdedb277243acb9656df2f344c5d0 = L.marker(
+                [34.09345, -118.291208],
+                {}
+            ).addTo(map_079117f8eac541a090755bdda6050239);
+        
+    
+            var icon_ee5230069caa476a9747b4f3daaeebff = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "play", "iconColor": "white", "markerColor": "green", "prefix": "glyphicon"}
+            );
+            marker_a7dfdedb277243acb9656df2f344c5d0.setIcon(icon_ee5230069caa476a9747b4f3daaeebff);
+        
+    
+        var popup_102940882eb14efd863d601f787cd781 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_fbeb75474c444029bf1bd60dec40d59b = $(`<div id="html_fbeb75474c444029bf1bd60dec40d59b" style="width: 100.0%; height: 100.0%;">Hollywood Hotel, 1160, North Vermont Avenue, East Hollywood, Los Angeles, California, 90029, United States</div>`)[0];
+            popup_102940882eb14efd863d601f787cd781.setContent(html_fbeb75474c444029bf1bd60dec40d59b);
+        
+
+        marker_a7dfdedb277243acb9656df2f344c5d0.bindPopup(popup_102940882eb14efd863d601f787cd781)
+        ;
+
+        
+    
+    
+            var marker_e2f46b40c44a4627a1f6eceddcb32a49 = L.marker(
+                [34.054717, -118.250303],
+                {}
+            ).addTo(map_079117f8eac541a090755bdda6050239);
+        
+    
+            var icon_7f9e451ad57c421586a43e4318b0798e = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "stop", "iconColor": "white", "markerColor": "red", "prefix": "glyphicon"}
+            );
+            marker_e2f46b40c44a4627a1f6eceddcb32a49.setIcon(icon_7f9e451ad57c421586a43e4318b0798e);
+        
+    
+        var popup_36901be693af45c7b46aeaf9d48f0c28 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_7bb43be526a84df4a619afb366fdf9cb = $(`<div id="html_7bb43be526a84df4a619afb366fdf9cb" style="width: 100.0%; height: 100.0%;">The Broad Museum, 221, South Grand Avenue, Bunker Hill, Downtown, Los Angeles, California, 90012, United States</div>`)[0];
+            popup_36901be693af45c7b46aeaf9d48f0c28.setContent(html_7bb43be526a84df4a619afb366fdf9cb);
+        
+
+        marker_e2f46b40c44a4627a1f6eceddcb32a49.bindPopup(popup_36901be693af45c7b46aeaf9d48f0c28)
+        ;
+
+        
+    
+</script>
